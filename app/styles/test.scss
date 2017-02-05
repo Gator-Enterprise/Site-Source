@@ -1,0 +1,118 @@
+$green: #0e9749;
+$purple: #826d96; //#5a3771
+@mixin text-shadow() {
+    text-shadow: 1px 1px #333;
+}
+
+@import "reset";
+
+
+body {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-image: url('/images/diamond-plate-background-black.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    min-height:100vh;
+
+    & > header,
+    & > section {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1280px;
+        padding-left: 2rem;
+        padding-right: 2rem;        
+        margin-left: auto;
+        margin-right: auto;        
+    }
+    & > section > div {
+        background-color: #fff;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding:1rem;
+    }
+
+}
+
+
+header {
+    //padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    ul {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    a {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        color: #fff;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: flex-end;
+        border-bottom-width: 0px;
+        border-bottom-style: solid;
+        border-bottom-color: $purple;
+        transition: all 200ms;        
+
+        &:hover {
+            a { color: $purple; }
+            border-bottom-width: 5px;
+        }
+    }
+    .logo { max-height: 200px;}
+}
+
+h3 {    
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dark {
+    background-color:#2c2c2c;
+    color: #fff;
+}
+
+
+#marine {
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    //img {width:100%;}
+    div {
+        @extend .dark;
+        align-self: stretch;
+        padding: 1rem;
+    }
+    img {
+        width: 50%;
+    }
+    img,
+    div {        
+        box-sizing:border-box;
+        //flex-basis: 50%;
+        flex: 1;
+    }
+
+    .overlay {
+        @include text-shadow;
+        position: absolute;
+        bottom: 0;
+        left: 0;        
+        background-color: rgba(#2c2c2c, 0.75);
+        width: 50%;
+    }
+
+
+}
+
+
