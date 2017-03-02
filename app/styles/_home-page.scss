@@ -102,7 +102,7 @@
     & > div {
         flex-basis: 50%;
         margin-top: 0;
-    }
+    }    
     .map iframe {min-height: 300px;}
 
 }
@@ -125,10 +125,14 @@
 .location-info {
     flex: 1;
     padding: 0;
-    .map iframe {min-height: 250px;}
+    .map {
+        height: 50%;
+        iframe {min-height: 250px;}
+    }
     .general-info { 
         @extend %info-block;
         padding: 1rem; 
+        height: 50%;
 
         @media screen and (min-width:1100px) { 
             display: flex;
@@ -138,7 +142,10 @@
     }
 
 
-    h3 {        
+    h3 {
+        display:flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
         text-align: center;
         padding-bottom: 1.5rem; 
@@ -157,7 +164,9 @@
     #timeline,
     .map {order: 2;}
     .location-info {order: 1;}
-    #timeline + .location-info {height:unset;}
+    #timeline + .location-info {
+        height:100%;
+    }
     .home-content {
         flex-wrap: wrap;
         & > div {        
