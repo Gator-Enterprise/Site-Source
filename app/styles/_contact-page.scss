@@ -1,0 +1,57 @@
+
+.contact-form {
+    padding: 0;
+    margin-top: 0;
+}
+
+.contact-info {
+    display: flex;
+    width: 100%;
+    h3 {
+        padding-bottom: 1.5rem; 
+    }
+    .details {
+        width: 30%;
+        //flex-shrink: 0; 
+    }
+    .map {
+        width: 70%;
+        //flex-shrink: 1;
+    }
+
+
+    .details {
+        margin-right: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        @extend %info-block;
+        
+        h3 {text-align:center;}        
+
+        svg {
+            display: inline;
+            height: 1.5rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        a[href="https://www.facebook.com/GatorEnterprise/"]{
+            display: flex; 
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width: 820px){
+        .details,
+        .map {width: 50%;}
+    }
+    @media screen and (max-width: 640px){
+        flex-wrap: wrap;
+        .details,
+        .map {width: 100%;}
+        .details {margin-right:0;}
+        .map {min-height: 250px;}
+
+    }
+}

@@ -1,0 +1,99 @@
+  .mobile-nav {
+
+  }
+
+
+  //--- menu-toggle styling ---
+  // adapted from "Hamburgers" by Jonathan Suh | https://github.com/jonsuh/hamburgers
+  $hamburger-layer-width                     : 60px !default;
+  $hamburger-layer-height                    : 6px !default;
+  $hamburger-layer-spacing                   : 9px !default;
+  $interaction-timing                        : all 250ms ease;
+
+  %toggle-active {
+    .toggle-inner {
+      $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+      transform: translate3d(0, $y-offset, 0) rotate(45deg);
+      &::before {
+        transform: rotate(-45deg) translate3d($hamburger-layer-width / -7, $hamburger-layer-spacing * -1, 0);
+        opacity: 0;
+      }
+      &::after {
+        transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 3;
+
+    // Normalize (<button>)
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    padding:0;
+
+    &:focus,
+    &:active {
+      outline-color: transparent;
+      outline-style: none;
+      outline-width: 0px;
+    }
+    &.is-active {
+      @extend %toggle-active;
+    }
+  }
+
+  .toggle-box {
+    width: $hamburger-layer-width;
+    height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+    display: inline-block;
+    position: relative;
+  }
+
+  .toggle-inner {
+    display: block;
+    top: $hamburger-layer-height / 2;
+    margin-top: $hamburger-layer-height / -2;
+
+    &,
+    &::before,
+    &::after {
+      width: $hamburger-layer-width;
+      height: $hamburger-layer-height;
+      background-color: #FFF;
+      border-radius: $hamburger-layer-height;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    &::before {
+      //top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+      top: $hamburger-layer-height + $hamburger-layer-spacing;
+      transition-property: transform, opacity;
+      transition-timing-function: ease;
+      transition-duration: 0.2s;
+    }
+
+    &::after {
+      bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+      top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
+    }
+  }
+
