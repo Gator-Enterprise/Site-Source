@@ -1,7 +1,8 @@
 
-.contact-form {
-    padding: 0;
-    margin-top: 0;
+.contact-form {    
+    padding: 0;    
+    @media screen and (min-width: 641px){ margin-top: 0; }
+
 }
 
 .contact-info {
@@ -11,12 +12,12 @@
         padding-bottom: 1.5rem; 
     }
     .details {
-        width: 30%;
-        //flex-shrink: 0; 
+        width: 30%;        
     }
     .map {
         width: 70%;
-        //flex-shrink: 1;
+        
+        iframe { min-height: 300px; }        
     }
 
 
@@ -51,7 +52,8 @@
         .details,
         .map {width: 100%;}
         .details {margin-right:0;}
-        .map {min-height: 250px;}
+        .map {min-height: 250px;}       
+
 
     }
 }

@@ -9,7 +9,8 @@
     
     & > div {
         &:first-of-type{
-            padding: 0;     
+            padding: 0;
+            background-color: transparent;     
         }
         width: 50%;
     }
