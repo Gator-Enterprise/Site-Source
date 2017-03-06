@@ -1,0 +1,119 @@
+$purple: #A984BB;
+
+html { 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    a { 
+        color: $purple;
+        text-decoration: none;
+    }
+}
+
+form {
+    font-size: 18px;
+    line-height: 1.5;
+}
+body > section {padding : 0;}
+.banner {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2em;
+    text-align: center
+    img {
+        display: block;
+        max-width: 640px;
+        max-height: 320px;
+    }
+    p {
+        text-align: center;
+        display: block;
+        margin:0;
+        font-size: 15px;
+        
+
+    }
+}
+
+#app {
+    /*display: none; /* set for access control */
+    max-width: 960px;
+    margin:0 auto;
+}
+form section {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    width: 50%; 
+    border-bottom: 1px solid #000;
+}
+section div {
+    text-align: right;
+    font-weight: 700;
+}
+section p {
+    margin:0;
+    text-align: right;
+    font-weight: 700;
+}
+input[type="radio"],
+input[type="checkbox"] {    
+    margin-left: 1em;
+    margin-right: 1em;
+    &:active,
+    &:focus {
+        outline:none;
+    }
+} 
+label {
+    text-align: right;
+    display: block;
+/*    
+    display: flex;
+    justify-content: flex-end; 
+*/
+}
+/* label div {padding:0 1em;} */
+/* .misc p {margin:0;} */
+.checked {font-weight: 700}
+.block p {font-weight: 400}
+.grand-total {
+    position: fixed;
+    left: 75%;
+    bottom: 1em;
+    background: white;
+    padding: 1rem;
+    text-align: center;
+}
+.grand-total a {
+    color:  $purple;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 640px) {
+    form section {
+        width: 75%;
+        float: none;
+    }
+    .grand-total {
+        position: static;
+        text-align: center;
+        clear: both;
+    }
+    .banner img { 
+        max-width: 80vw;
+        max-height: unset;
+    }
+}
+@media screen and (max-width: 480px) {
+    form section {
+        width: 100%;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+    form { 
+        font-size: 16px;
+        line-height: 1.75;
+    }
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gator Enterprise | Engine Quoting Tool</title>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon-precomposed" href="images/touch/favicon-152.png">
+        <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+        <!-- Disable tap highlight on IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+
+        <!-- Color the status bar on mobile devices -->
+        <meta name="theme-color" content="#2c2c2c">        
+        <meta name="robots" content="noindex" />
+
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="styles/engine-quote-tool-style.css">
+
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    -->   
+
+    </style>
+
+</head>
+<body>
+
+<section id="app">
+<div class="banner">
+    <a href="/"><img src="/images/logo-full.png" alt="Gator Enterprise" /></a>
+    <p><a href="/"><< back to main site</a></p>
+</div>
+<form>
+    <section class="block">
+        <div>Block Total - $740</div>
+        <p>Block (core) - $175</p>
+        <p>Block Machine Work - $450</p>
+        <p>Block Prep (labor) - $90</p>
+        <p>Block Prep (parts) - $25</p>        
+    </section>
+    <section>
+        <div>Cam Bearings - ${{camBearingsCost}}</div>
+        <label>Level 1 - $20 <input v-model="camBearingsCost" name="camBearingsCost" type="radio" value="20"></label>
+        <label>Level 2 - $45 <input v-model="camBearingsCost" name="camBearingsCost" type="radio" value="45"></label>
+        <label>Level 3 - $80 <input v-model="camBearingsCost" name="camBearingsCost" type="radio" value="80"></label>
+    </section>
+    <section>
+        <div>Main Bearings - ${{mainBearingsCost}}</div>
+        <label>Level 1 - $25 <input v-model="mainBearingsCost" name="mainBearingsCost" type="radio" value="25"></label>
+        <label>Level 2 - $72 <input v-model="mainBearingsCost" name="mainBearingsCost" type="radio" value="72"></label>
+        <label>Level 3 - $121 <input v-model="mainBearingsCost" name="mainBearingsCost" type="radio" value="121"></label>
+    </section>
+    <section>
+        <div>Rod Bearings - ${{rodBearingsCost}}</div>
+        <label>Level 1 - $23 <input v-model="rodBearingsCost" name="rodBearingsCost" type="radio" value="23"></label>
+        <label>Level 2 - $70 <input v-model="rodBearingsCost" name="rodBearingsCost" type="radio" value="70"></label>
+        <label>Level 3 - $121 <input v-model="rodBearingsCost" name="rodBearingsCost" type="radio" value="121"></label>
+    </section>
+    <section>
+        <div>Crankshaft - ${{crankshaftCost}}</div>
+        <label>Stock Replacement - $210 <input v-model="crankshaftCost" name="crankshaftCost" type="radio" value="210"></label>
+        <label>Level 1 - $242 <input v-model="crankshaftCost" name="crankshaftCost" type="radio" value="242"></label>
+        <label>Level 2 - $602 <input v-model="crankshaftCost" name="crankshaftCost" type="radio" value="602"></label>
+        <label>Level 3 - $1300 <input v-model="crankshaftCost" name="crankshaftCost" type="radio" value="1300"></label>
+    </section>    
+    <section>
+        <div>Connecting Rods - ${{connectingRodsCost}}</div>      
+        <label>Level 1 - $275 <input v-model="connectingRodsCost" name="connectingRodsCost" type="radio" value="275"></label>
+        <label>Level 2 - $352 <input v-model="connectingRodsCost" name="connectingRodsCost" type="radio" value="352"></label>
+        <label>Level 3 - $589 <input v-model="connectingRodsCost" name="connectingRodsCost" type="radio" value="589"></label>
+    </section>  
+    <section>
+        <div>Pistons - ${{pistonsCost}}</div>      
+        <label>Level 1 - $205 <input v-model="pistonsCost" name="pistonsCost" type="radio" value="205"></label>
+        <label>Level 2 - $398 <input v-model="pistonsCost" name="pistonsCost" type="radio" value="398"></label>
+        <label>Level 3 - $603 <input v-model="pistonsCost" name="pistonsCost" type="radio" value="603"></label>
+    </section>  
+    <section>
+        <div>Piston Rings - ${{pistonRingsCost}}</div>      
+        <label>Level 1 - $45 <input v-model="pistonRingsCost" name="pistonRingsCost" type="radio" value="45"></label>
+        <label>Level 2 - $83 <input v-model="pistonRingsCost" name="pistonRingsCost" type="radio" value="83"></label>
+        <label>Level 3 - $182 <input v-model="pistonRingsCost" name="pistonRingsCost" type="radio" value="182"></label>
+    </section>  
+    <section>
+        <div>Oil Pump - ${{oilPumpCost}}</div>      
+        <label>Level 1 - $62 <input v-model="oilPumpCost" name="oilPumpCost" type="radio" value="62"></label>
+        <label>Level 2 - $142 <input v-model="oilPumpCost" name="oilPumpCost" type="radio" value="142"></label>
+        <label>Level 3 - $369 <input v-model="oilPumpCost" name="oilPumpCost" type="radio" value="369"></label>
+    </section>
+
+    <section>
+        <p>Oil Filter Adapter - $15</p>
+        <p>Oil Pump Pick-up - $14</p>
+        <p>Intermediate Shaft - $13</p>
+        <p>Rear Main seal - $16</p>
+        <p>Oil Pan and gasket - $75</p>
+        <p>Timing cover and Seal - $26</p>
+        <p>Harmonic Balancer - $65</p>
+        <p>Flex Plate - $32</p>
+    </section>
+    <section>
+        <div>Timing Set - ${{timingSetCost}}</div>
+        <label>Level 1 - $27 <input v-model="timingSetCost" name="timingSetCost" type="radio" value="27"></label>
+        <label>Level 2 - $82 <input v-model="timingSetCost" name="timingSetCost" type="radio" value="82"></label>
+        <label>Level 3 - $198 <input v-model="timingSetCost" name="timingSetCost" type="radio" value="198"></label>
+    </section>
+    <section>
+        <div>Cam and Lifter Set - ${{camAndLifterSetCost}}</div>
+        <label>hyd Flat - $175 <input v-model="camAndLifterSetCost" name="camAndLifterSetCost" type="radio" value="175"></label>
+        <label>hyd Flat direct lube - $225 <input v-model="camAndLifterSetCost" name="camAndLifterSetCost" type="radio" value="255"></label>
+        <label>solid flat - $275 <input v-model="camAndLifterSetCost" name="camAndLifterSetCost" type="radio" value="275"></label>
+        <label>hyd roller - $650 <input v-model="camAndLifterSetCost" name="camAndLifterSetCost" type="radio" value="650"></label>
+        <label>solid roller - $750 <input v-model="camAndLifterSetCost" name="camAndLifterSetCost" type="radio" value="750"></label>
+    </section>
+    <section>
+        <p>Shortblock Fasteners - $35</p>
+    </section>
+    <section>
+        <div>Cylinder Head - ${{cylinderHeadCost}}</div>
+        <label>Level 1 (OEM) - $325 <input v-model="cylinderHeadCost" name="cylinderHeadCost" type="radio" value="325"></label>
+        <label>Level 2 - $850 <input v-model="cylinderHeadCost" name="cylinderHeadCost" type="radio" value="850"></label>
+        <label>Level 3 - $1,150 <input v-model="cylinderHeadCost" name="cylinderHeadCost" type="radio" value="1150"></label>
+    </section>
+    <section>
+        <div>Head Gaskets - ${{headGasketCost}}</div>
+        <label>Level 1 - $55 <input v-model="headGasketCost" name="headGasketCost" type="radio" value="55"></label>
+        <label>Level 2 - $120 <input v-model="headGasketCost" name="headGasketCost" type="radio" value="120"></label>
+        <label>Level 3 - $210 <input v-model="headGasketCost" name="headGasketCost" type="radio" value="210"></label>
+    </section>
+    <section>
+        <div>Head Bolts - ${{headBoltsCost}}</div>
+        <label>Level 1 - $48 <input v-model="headBoltsCost" name="headBoltsCost" type="radio" value="48"></label>
+        <label>Level 2 - $98 <input v-model="headBoltsCost" name="headBoltsCost" type="radio" value="98"></label>
+    </section>
+    <section>
+        <div>Push Rods - ${{pushRodsCost}}</div>
+        <label>Flat Tappet - $64 <input v-model="pushRodsCost" name="pushRodsCost" type="radio" value="64"></label>
+        <label>Roller - $93 <input v-model="pushRodsCost" name="pushRodsCost" type="radio" value="93"></label>
+    </section>
+    <section>
+        <div>Rockers/Nuts - ${{rockerNutCost}}</div>
+        <label>Level 1 (OEM Style) - $65 <input v-model="rockerNutCost" name="rockerNutCost" type="radio" value="65"></label>
+        <label>Level 2 (Roller) - $260 <input v-model="rockerNutCost" name="rockerNutCost" type="radio" value="260"></label> 
+        <label>Level 1 (Shaft Mount) - $450 <input v-model="rockerNutCost" name="rockerNutCost" type="radio" value="450"></label>
+    </section>
+    <section>
+        <p>Valve Covers - $35</p>
+    </section>
+    <section>
+        <div>Intake Manifold - ${{intakeManifoldCost}}</div>      
+        <label>Level 1 - $165 <input v-model="intakeManifoldCost" name="intakeManifoldCost" type="radio" value="165"></label>
+        <label>Level 2 - $225 <input v-model="intakeManifoldCost" name="intakeManifoldCost" type="radio" value="225"></label>
+        <label>Level 3 - $350 <input v-model="intakeManifoldCost" name="intakeManifoldCost" type="radio" value="350"></label>
+    </section>
+    <section>
+        <p>Water Pump - $55</p>
+        <p>Water Inlet - $16</p>
+        <p>Pulley Set - $99</p>
+        <p>Distributor - $175</p>
+        <p>Plug Wires - $89</p>
+        <p>Spark Plugs - $35</p>
+        <p>Top End Gaskets - $25</p>
+    </section>
+    <section>
+        <label v-bind:class="{ checked: starterNeeded }">        
+            Starter - $130 <input type="checkbox" v-model="starterNeeded">
+        </label>
+    </section>
+    <section>
+        <div>Carb - ${{carbCost}}</div>      
+        <label>Carb (2 bbl) and adapter - $500 <input v-model="carbCost" name="carbCost" type="radio" value="500"></label>
+        <label>Carb (4 bbl) - $620 <input v-model="carbCost" name="carbCost" type="radio" value="620"></label>
+    </section>
+    <section>
+        <p>Consumables - $150</p>
+        <p>Shipping - $175</p>
+        <p>Labor - $675 </p>
+    </section>
+  
+</form>
+<div class="grand-total">
+    <h2>Total - ${{total}}</h2>
+    <a href="/contact" target="_blank"> << Contact Us </a>
+</div>
+
+</section>
+
+<script>
+        var app = new Vue({
+        el: '#app',
+        data: {
+            camBearingsCost: 0,
+            mainBearingsCost: 0,
+            rodBearingsCost: 0,
+            crankshaftCost: 0,
+            connectingRodsCost: 0,
+            pistonsCost: 0,
+            pistonRingsCost: 0,
+            oilPumpCost: 0,
+            timingSetCost: 0,
+            camAndLifterSetCost: 0,
+            cylinderHeadCost: 325,
+            headGasketCost: 0,
+            headBoltsCost: 0,
+            pushRodsCost: 0,
+            rockerNutCost: 0,
+            intakeManifoldCost: 0,
+            starterNeeded: false,
+            carbCost: 0,
+        },
+        computed: {
+            total: function(){
+                var val = 0;
+                val+=175; // Block (core)
+                val+=450; // Block Machine Work
+                val+=90; // Block Prep (labor)
+                val+=25; // Block Prep (parts)
+                //val+=150; // In-house machine work (for freshen only)
+                val+=parseInt(this.camBearingsCost); 
+                val+=parseInt(this.mainBearingsCost);
+                val+=parseInt(this.rodBearingsCost);
+                val+=parseInt(this.crankshaftCost);
+                val+=parseInt(this.connectingRodsCost);
+                val+=parseInt(this.pistonsCost);
+                val+=parseInt(this.pistonRingsCost);
+                val+=parseInt(this.oilPumpCost);
+                val+=15; // Oil Filter Adapter
+                val+=14; // Oil Pump Pick-up
+                val+=13; // Intermediate Shaft
+                val+=16; // Rear Main Seal 
+                val+=75; // Oil Pan and gasket
+                val+=26; // timing cover and seal
+                val+=65; // Harmonic Balancer 
+                val+=32; // Flex plate
+                val+=parseInt(this.timingSetCost);
+                val+=parseInt(this.camAndLifterSetCost);
+                val+=35; // Shortblock Fasteners
+                val+=parseInt(this.cylinderHeadCost);
+                val+=parseInt(this.headGasketCost);
+                val+=parseInt(this.headBoltsCost);
+                val+=parseInt(this.pushRodsCost);
+                val+=parseInt(this.rockerNutCost);
+                val+=35; // Valve Covers
+                val+=parseInt(this.intakeManifoldCost);
+                val+=55; // Water Pump
+                val+=16; // Water Inlet
+                val+=99; // Pulley Set
+                val+=175; // Distributors
+                val+=89; // Plug Wires
+                val+=35; // Spark Plugs
+                val+=25; // Top End Gaskets
+                if(this.starterNeeded){val+=130}
+                //val+=130; // Starter
+                val+=parseInt(this.carbCost);
+                val+=150; // Consumables
+                val+=175; // Shipping
+                val+=675; // Labor 
+                return val;
+            }
+        }
+    });
+</script>
+</body>
+</html>
