@@ -1,8 +1,4 @@
-$green: #0e9749;
-//$purple: #826d96; //#5a3771
-$purple: #A984BB;
-$dark: #2c2c2c;
-$block-spacing: 30px;
+@import "variables";
 
 @mixin text-shadow() {
     text-shadow: 1px 1px #333;
