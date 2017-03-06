@@ -10,11 +10,21 @@ html {
     }
 }
 
+body > section {padding : 0;}
+
 form {
     font-size: 18px;
     line-height: 1.5;
+    section {
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1em;
+        width: 50%; 
+        border-bottom: 1px solid #000;
+    }
 }
-body > section {padding : 0;}
+
 .banner {
     width: 100%;
     text-align: center;
@@ -49,23 +59,19 @@ body > section {padding : 0;}
     max-width: 960px;
     margin:0 auto;
 }
-form section {
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1em;
-    width: 50%; 
-    border-bottom: 1px solid #000;
+
+section {
+    div {
+        text-align: right;
+        font-weight: 700;
+    }
+    p {
+        margin:0;
+        text-align: right;
+        font-weight: 700;
+    }
 }
-section div {
-    text-align: right;
-    font-weight: 700;
-}
-section p {
-    margin:0;
-    text-align: right;
-    font-weight: 700;
-}
+
 input[type="radio"],
 input[type="checkbox"] {    
     margin-left: 1em;
@@ -91,7 +97,6 @@ label {
     position: fixed;
     left: 75%;
     bottom: 1em;
-    background: white;
     padding: 1rem;
     text-align: center;
 
