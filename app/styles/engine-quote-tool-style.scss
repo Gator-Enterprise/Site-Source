@@ -18,7 +18,6 @@ body > section {padding : 0;}
 .banner {
     width: 100%;
     text-align: center;
-    padding-bottom: 2em;
     text-align: center
     img {
         display: block;
@@ -32,6 +31,16 @@ body > section {padding : 0;}
         font-size: 15px;
         
 
+    }
+}
+.note { 
+    border-bottom-width: 0;
+    padding-bottom: 2em;
+    p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1.25;
     }
 }
 
@@ -85,11 +94,13 @@ label {
     background: white;
     padding: 1rem;
     text-align: center;
+
+    a {
+        color:  $purple;
+        text-decoration: none;
+    }
 }
-.grand-total a {
-    color:  $purple;
-    text-decoration: none;
-}
+
 
 @media screen and (max-width: 640px) {
     form section {
