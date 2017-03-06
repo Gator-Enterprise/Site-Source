@@ -9,9 +9,12 @@
 body {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     background-image: url('/images/diamond-plate-background-black.jpg');
-    background-size: cover;
-    background-repeat: repeat no-repeat;    
+    //background-size: cover;
+    //background-position: bottom;
+    background-size: 100% auto;
     background-position: bottom;
+    background-repeat: repeat no-repeat;    
+    background-color: #000;
     min-height:100vh;
 
     & > header,
