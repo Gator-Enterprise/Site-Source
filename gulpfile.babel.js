@@ -26,6 +26,7 @@
 
 import path from 'path';
 import gulp from 'gulp';
+import babel from 'gulp-babel'
 import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
@@ -69,9 +70,9 @@ gulp.task('images', () =>
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
   gulp.src([
-    'app/*',
-    '!app/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+      'app/*',
+      '!app/*.html',
+      'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
@@ -115,27 +116,33 @@ gulp.task('styles', () => {
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
-gulp.task('scripts', () =>
-    gulp.src([
-      // Note: Since we are not using useref in the scripts build pipeline,
-      //       you need to explicitly list your scripts here in the right order
-      //       to be correctly concatenated      
-      './app/scripts/engine-page.js'
-      // Other scripts
-    ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('engine-page.js'))
-      //.pipe($.uglify())
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
-      .pipe(gulp.dest('.tmp/scripts'))
-);
+gulp.task('scripts', () =>{
+        gulp.src('./node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest('dist/scripts'));
+
+        // -- engine-page.js ...blah
+        gulp.src([
+            // Note: Since we are not using useref in the scripts build pipeline,
+            //       you need to explicitly list your scripts here in the right order
+            //       to be correctly concatenated
+            './app/scripts/lib/menuToggle.js',
+            './app/scripts/lib/fancybox.js',
+            './app/scripts/engine-page.js'
+
+            // Other scripts
+        ])
+            .pipe($.newer('.tmp/scripts'))
+            .pipe($.sourcemaps.init())
+            .pipe(babel())
+            .pipe($.sourcemaps.write())
+            .pipe(gulp.dest('.tmp/scripts'))
+            .pipe($.concat('engine-page.js'))
+            //.pipe($.uglify())
+            // Output files
+            .pipe($.size({title: 'scripts'}))
+            .pipe($.sourcemaps.write('.'))
+            .pipe(gulp.dest('dist/scripts'))
+            .pipe(gulp.dest('.tmp/scripts'))
+});
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {

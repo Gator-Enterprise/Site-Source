@@ -104,7 +104,16 @@ header {
 }
 
 @import "mobile-nav";
-
+a {
+    &:active,
+    &:visited,
+    &:focus {
+        outline-width: 0;
+        outline-style: hidden;
+    }
+}
+h1,
+h2,
 h3 {    
     font-size: 2rem;
     font-weight: 700;
@@ -282,4 +291,5 @@ strong {font-weight: 700;}
     }
 }
 
+@import "jquery.fancybox.css.scss";
 
