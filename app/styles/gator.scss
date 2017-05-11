@@ -78,6 +78,7 @@ header {
         border-bottom-width: 0px;
         border-bottom-style: solid;
         border-bottom-color: $purple;
+        text-align: center;
         transition: all 200ms;        
 
         &:hover {
@@ -200,6 +201,9 @@ strong {font-weight: 700;}
 
 
 @media screen and (max-width:760px) {
+    body {
+        background-position: top;
+    }
     header {
         background-color:rgba(0,0,0,0.75);
         padding:1rem;
