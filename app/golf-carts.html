@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gator Enterprise | Engines</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/touch/favicon-152.png">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2c2c2c">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles/gator.css">
+
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script src="https://npmcdn.com/contentful@latest/dist/contentful.min.js"></script>
+
+    <script src="scripts/golf-cart-page.js"></script>
+</head>
+<body class="engines-page">
+<header>
+    <nav role="navigation">
+        <ul>
+            <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
+            <li class="menu-item"><a href="/">Home</a></li>
+            <li class="menu-item"><a href="/contact">Contact Us</a></li>
+            <li class="menu-item"><a href="/engines">Engines</a></li>
+            <li class="menu-item active"><a href="/golf-carts">Golf Carts</a></li>
+        </ul>
+        <div class="mobile-nav">
+            <a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a>
+            <button id="menu-toggle" class="menu-toggle" type="button">
+                <span class="toggle-box"> <span class="toggle-inner"></span></span>
+            </button>
+            <div class="mobile-menu-items">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/engines">Engines</a></li>
+                    <li class="active"><a href="/golf-carts">Golf Carts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="shadow"></div>
+
+<section class="golf-carts">
+    <div class="info">
+        Hey we sell golf carts!
+    </div>
+
+</section>
+<!--
+<section class="engines-coming-soon">
+    <div>
+        <img src="/images/engine.jpg" alt="Engine" />
+    </div>
+    <div class="dark">
+        <h3>Engines page coming soon. </h3>
+        <p> Check out some of our latest work on our <a href="https://www.facebook.com/GatorEnterprise/" target="_blank">Facebook page</a></p>
+
+        <p>
+            Interested in our prices? <br><a href="/engine-quote-tool">Click here</a> to check out our engine quote tool.
+        </p>
+    </div>
+
+</section>
+<section class="gallery">
+</section>
+-->
+<!--
+        <script>
+            jQuery(document).ready(function($) {
+                $('#menu-toggle').click(function(){
+                    $(this).toggleClass('is-active');
+                    if( $(this).hasClass('is-active') ){
+                        $('.mobile-menu-items').addClass('show');
+                    } else {
+                        $('.mobile-menu-items').removeClass('show');
+                    }
+                });
+
+                //var contentful = require('contentful')
+
+                var SPACE_ID = 'f46hoomog4ih'
+                var ACCESS_TOKEN = '45839970353b21dcf858f422a0c4f514a03e0224f2bd712a7ed0bba5901a12c4'
+
+                var client = contentful.createClient({
+                  // This is the space ID. A space is like a project folder in Contentful terms
+                  space: SPACE_ID,
+                  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+                  accessToken: ACCESS_TOKEN
+                })
+                console.log('\x1b[32m Fetching entries ... \x1b[32m')
+                client.getEntries()
+                  .then((response) => {
+                    console.log('\x1b[32m Here are the first 100 entry IDs of your space .\n')
+                    console.log(response.items.map((item) => '\x1b[32m \t> ' + item.sys.id).join('\n'))
+                    console.log('\n \x1b[32m Want to go further? Feel free to check out this guide: \x1b[34m\x1b[4mhttps://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/')
+                  })
+                  .catch((error) => {
+                    console.log('\x1b[31merror occured')
+                    console.log(error)
+                  })
+            });
+        </script>
+-->
+
+</body>
+</html>
+
+
+
