@@ -1,89 +1,23 @@
-.available-engines {
-    .engine {
-        h4 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding-top: 1rem;
-        }
-        h4,.description {
-            padding-bottom: 1rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    }
-    .photos {
-        display: flex;
-        flex-wrap: wrap;
-        a {
-            display: block;
-            max-width: 25%;
-
-            & > * {
-                box-sizing: border-box;
-                max-width: 100%;
-                padding:1rem;
-            }
-
-
-            @media screen and (min-width: 760px) {
-                max-width: 50%;
-                & > * {max-height: 500px;}
-            }
-        }
-        @media screen and (max-width: 759px) {
-            &::before{
-                content: 'Click to Expand';
-                text-align: center;
-                width: 100%;
-                display: block;
-                font-style: italic;
-                font-size: 75%;
-            }
-        }
-    }
-
-}
 .engines-page {
-    .fancybox-slide {
-        .fancybox-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            & > * {
-                position: relative;
-                max-width: 80%;
-                max-height: 80%;
-            }
-        }
-
-        //margin-left:auto;
-        //margin-right: auto;
-
-    }
-}
-
-
-.engines-unavailable,
-.engines-coming-soon {
-    @extend %crm-section-no-items;
-}
-
-.engines-page {
-    background-size: 100% auto;
-    background-position: top;
-
     .info {
         @extend .dark;
-        @extend %info-box;
+        @extend %page-info;
         p {
             margin-bottom: 0;
         }
     }
+}
 
-    .gallery-item {
-        img {
-            width: 100%;
-            height: auto;
-        }
+.engines-unavailable,
+.engines-coming-soon {
+    @extend %no-items-available-section;
+}
+
+.available-engines {
+    @extend %available-items-photos;
+    .engine {
+        @extend %available-item-styles
+
     }
 }
+
