@@ -3,27 +3,48 @@
         h4 {
             font-size: 1.5rem;
             font-weight: 700;
+            padding-top: 1rem;
         }
-        h4,p {
+        h4,.description {
             padding-bottom: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
     }
     .photos {
         display: flex;
+        flex-wrap: wrap;
         a {
             display: block;
             max-width: 25%;
-            & > * { max-width: 100%; }
+
+            & > * {
+                box-sizing: border-box;
+                max-width: 100%;
+                padding:1rem;
+            }
 
 
-            @media screen and (min-width: 760px) { max-width: 50%; }
+            @media screen and (min-width: 760px) {
+                max-width: 50%;
+                & > * {max-height: 500px;}
+            }
+        }
+        @media screen and (max-width: 759px) {
+            &::before{
+                content: 'Click to Expand';
+                text-align: center;
+                width: 100%;
+                display: block;
+                font-style: italic;
+                font-size: 75%;
+            }
         }
     }
 
 }
 .engines-page {
     .fancybox-slide {
-
         .fancybox-placeholder {
             display: flex;
             align-items: center;
@@ -44,64 +65,21 @@
 
 .engines-unavailable,
 .engines-coming-soon {
-    display: flex;
-    align-items: stretch;    
-    & > div {
-        &:first-of-type{
-            padding: 0;
-            background-color: transparent;     
-        }
-        width: 50%;
-    }
-
-    .dark {
-        @include text-shadow;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;        
-        margin-left: 2rem;
-        letter-spacing: 2px;
-        text-align: center;
-        h3 {
-            text-transform: none; 
-            margin-bottom: 1.5rem;
-        }
-        p {
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-        a {color: $purple; }
-
-    }    
-
-    img {
-        width: 100%;
-        height: 100%;
-    }
-
-    @media screen and (max-width: 760px) {
-        flex-wrap: wrap;
-        position: relative;
-        box-sizing: border;
-        & > div { width: 100%; }
-        .dark {
-            margin-left:2rem;
-            margin-right:2rem;
-            padding: 2rem;
-            width: unset;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;            
-            background-color: rgba($dark, 0.75);
-        }
-    }
+    @extend %crm-section-no-items;
 }
 
 .engines-page {
     background-size: 100% auto;
     background-position: top;
+
+    .info {
+        @extend .dark;
+        @extend %info-box;
+        p {
+            margin-bottom: 0;
+        }
+    }
+
     .gallery-item {
         img {
             width: 100%;

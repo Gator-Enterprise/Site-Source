@@ -21,6 +21,8 @@ jQuery(document).ready(function($) {
             let items = response.items;
 
             if( items.length > 0 ){  // -- has items
+
+
                 $('.engines-unavailable').hide();
 
                 $.each(items,function(i) {
@@ -50,13 +52,6 @@ jQuery(document).ready(function($) {
                                         "src": url
                                     })
                                 );
-                            /*
-                             let $img = ;
-                             $img.attr({
-                             "alt": this.fields.title,
-                             "src": url
-                             });
-                             */
 
                             $photos.append($wrapper);
 
@@ -67,9 +62,14 @@ jQuery(document).ready(function($) {
                     $availableEngines.append($engine);
 
                 });
-                //console.log($availableEngines);
+
                 $('.engines-page').append($availableEngines);
 
+                const $info = $(
+                    '<div class="info"><p>Below are some of the engines that are currently available. Interested in our prices for a custom build? <a href="/engine-quote-tool">Click here</a> to check out our engine quote tool.</p></div>'
+                );
+
+                $availableEngines.prepend($info);
 
                 fancyboxInit();
 
