@@ -8,7 +8,7 @@
 // Copyright 2017 fancyApps
 //
 // ==================================================
-function fancybox(){
+export default function(){
     ;(function (window, document, $, undefined) {
         //'use strict';
 
