@@ -206,7 +206,12 @@ gulp.task('scripts', () => {
         .pipe($.sourcemaps.init())
         .pipe(rollup({
             // any option supported by Rollup can be set here.
-            entry: ['./app/scripts/golf-cart-page.js','./app/scripts/engine-page-alt.js'],
+            entry: [
+                './app/scripts/home-page.js',
+                './app/scripts/contact-page.js',
+                './app/scripts/golf-cart-page.js',
+                './app/scripts/engine-page-alt.js'
+            ],
             plugins: babel({"modules":false})
         }))
         .pipe($.sourcemaps.write('.'))
