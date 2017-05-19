@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gator Enterprise | Engines</title>
+    <title>Gator Enterprise | Golf Carts</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon-precomposed" href="images/touch/favicon-152.png">
     <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
@@ -29,91 +29,88 @@
 
     <script src="scripts/golf-cart-page.js"></script>
 </head>
-<body class="engines-page">
-<header>
-    <nav role="navigation">
-        <ul>
-            <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
-            <li class="menu-item"><a href="/">Home</a></li>
-            <li class="menu-item"><a href="/contact">Contact Us</a></li>
-            <li class="menu-item"><a href="/engines">Engines</a></li>
-            <li class="menu-item active"><a href="/golf-carts">Golf Carts</a></li>
-        </ul>
-        <div class="mobile-nav">
-            <a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a>
-            <button id="menu-toggle" class="menu-toggle" type="button">
-                <span class="toggle-box"> <span class="toggle-inner"></span></span>
-            </button>
-            <div class="mobile-menu-items">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/engines">Engines</a></li>
-                    <li class="active"><a href="/golf-carts">Golf Carts</a></li>
-                </ul>
+<body class="golf-carts-page">
+    <header>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/contact">Contact Us</a></li>
+                <li class="menu-item"><a href="/engines">Engines</a></li>
+                <li class="menu-item active"><a href="/golf-carts">Golf Carts</a></li>
+            </ul>
+            <div class="mobile-nav">
+                <a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a>
+                <button id="menu-toggle" class="menu-toggle" type="button">
+                    <span class="toggle-box"> <span class="toggle-inner"></span></span>
+                </button>
+                <div class="mobile-menu-items">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/engines">Engines</a></li>
+                        <li class="active"><a href="/golf-carts">Golf Carts</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+    </header>
+    <div class="shadow"></div>
+
+    <section>
+
+        <h1 class="page-title">Golf Cart Service & Sales </h1>
+
+        <div class="service">
+            <p>
+                Need to get your old cart back up to speed? <br>
+                Bring it on in. Our services includes:
+            </p>
+            <ul>
+                <li>Change Oil & Filter</li>
+                <li>Replace Air Filter</li>
+                <li>Replace Spark-plugs</li>
+                <li>Inspect Drive & Generator Belts</li>
+                <li>Drive Clutch</li>
+                <li>Throttle Linkage</li>
+                <li>Grease Wheel Bearings</li>
+                <li>Differential Oil</li>
+                <li>Correct Tire Pressure</li>
+                <li>Check Brakes Work Properly</li>
+                <li>Test Battery & Terminal Connector</li>
+            </ul>
         </div>
-    </nav>
-</header>
-<div class="shadow"></div>
 
-
-<section class="golf-carts-unavailable">
-    <div>
-        <img src="/images/golf-cart.jpg" alt="golf-cart" />
-    </div>
-    <div class="dark">
-        <h3>More golf carts coming soon. </h3>
+        <div>
         <p>
-            We don't have any golf carts currently available. Please check back later.
-        </p>
-        <p>
-            Have a cart in need of repair? Looking to have us help you sell yours?
-        </p>
-        <p><a href="/contact">Contact Us!</a></p>
-    </div>
+            We also do custom add-on's like:</p>
+            <ul>
+                <li>Flip Seats</li>
+                <li>Headlights/Taillights</li>
+                <li>Rearview Mirrors</li>
+                <li>Custom Wheels</li>
+                <li>Lift Kits</li>
+                <li>Windshields</li>
+            </ul>
 
-</section>
-<section class="gallery">
-</section>
-<!--
-        <script>
-            jQuery(document).ready(function($) {
-                $('#menu-toggle').click(function(){
-                    $(this).toggleClass('is-active');
-                    if( $(this).hasClass('is-active') ){
-                        $('.mobile-menu-items').addClass('show');
-                    } else {
-                        $('.mobile-menu-items').removeClass('show');
-                    }
-                });
+        </div>
+    </section>
 
-                //var contentful = require('contentful')
 
-                var SPACE_ID = 'f46hoomog4ih'
-                var ACCESS_TOKEN = '45839970353b21dcf858f422a0c4f514a03e0224f2bd712a7ed0bba5901a12c4'
 
-                var client = contentful.createClient({
-                  // This is the space ID. A space is like a project folder in Contentful terms
-                  space: SPACE_ID,
-                  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-                  accessToken: ACCESS_TOKEN
-                })
-                console.log('\x1b[32m Fetching entries ... \x1b[32m')
-                client.getEntries()
-                  .then((response) => {
-                    console.log('\x1b[32m Here are the first 100 entry IDs of your space .\n')
-                    console.log(response.items.map((item) => '\x1b[32m \t> ' + item.sys.id).join('\n'))
-                    console.log('\n \x1b[32m Want to go further? Feel free to check out this guide: \x1b[34m\x1b[4mhttps://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/')
-                  })
-                  .catch((error) => {
-                    console.log('\x1b[31merror occured')
-                    console.log(error)
-                  })
-            });
-        </script>
--->
+    <section class="golf-carts-unavailable">
+        <div>
+            <img src="/images/golf-cart.jpg" alt="golf-cart" />
+        </div>
+        <div class="dark">
+            <h3>More golf carts coming soon. </h3>
+            <p>
+                We don't have any golf carts currently available. Please check back later.
+            </p>
+            <p>Also, feel free to <a href="/contact">contact us!</a></p>
+        </div>
 
+    </section>
 </body>
 </html>
 

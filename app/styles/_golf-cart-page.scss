@@ -1,4 +1,81 @@
+.golf-carts-page {
+    @extend %available-items-photos;
+    .page-title {
+        @include text-shadow;
+        margin-top: $block-spacing*1.5;
+        //margin-bottom: $block-spacing;
+        width: 100%;
+        font-size: 3rem;
+        text-align: center;
+        color: $purple;
+
+    }
+
+    & > section:first-of-type {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        div {
+            flex: 1;
+
+            margin-top: $block-spacing*1.5;
+            line-height: 1.25;
+            p {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+            ul {
+                padding-left:1rem;
+            }
+            li {
+                position: relative;
+                padding-left:0.8rem;
+                &::before {
+                    content: '•';
+                    position: absolute;
+                    left:0;
+                }
+            }
+            @media screen and (min-width: 761px)  {
+                flex:2;
+                &:last-of-type {
+                    flex:1;
+                    margin-left: $block-spacing;
+                }
+
+
+            }
+        }
+        @media screen and (max-width: 760px)  {
+          display: block;
+        }
+
+    }
+    .service ul {
+        column-count: 2;
+    }
+    .info {
+        @extend .dark;
+        @extend %page-info;
+        padding: $block-spacing;
+        background-color: black;
+        h3 {color: $purple;}
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .golf-carts-unavailable,
 .golf-carts-coming-soon {
-    @extend %crm-section-no-items;
+    @extend %no-items-available-section;
+}
+
+.available-carts {
+    @extend %available-items-photos;
+    .cart {
+        @extend %available-item-styles;
+    }
+
 }

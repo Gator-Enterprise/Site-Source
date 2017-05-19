@@ -1,62 +1,81 @@
-(function() {
-    jQuery(document).ready(function($) {
-        $('#menu-toggle').click(function(){
-            $(this).toggleClass('is-active');
-            if( $(this).hasClass('is-active') ){
-                $('.mobile-menu-items').addClass('show');
-            } else {
-                $('.mobile-menu-items').removeClass('show');
-            }
-        });
+import menuToggleInit from "./lib/menuToggleModule";
+import fancyboxInit from "./lib/fancybox";
 
-        const SPACE_ID = 'oo4yz13ylbb3'
-        const ACCESS_TOKEN = 'f9e0e09a35ebd58e104234e7b9c1460462edc4ec1ef036237b9f72b31f7f39ac'
+jQuery(document).ready(function($) {
+    menuToggleInit();
 
-        const client = contentful.createClient({
-            space: SPACE_ID,
-            accessToken: ACCESS_TOKEN
-        })
+    const SPACE_ID = 'oo4yz13ylbb3'
+    const ACCESS_TOKEN = 'f9e0e09a35ebd58e104234e7b9c1460462edc4ec1ef036237b9f72b31f7f39ac'
 
-        let $currentlyAvailable = $('<div class="currently-available"></div>');
+    const client = contentful.createClient({
+        space: SPACE_ID,
+        accessToken: ACCESS_TOKEN
+    })
 
-        client.getEntries()
-            .then((response) => {
-                let items = response.items;
-                console.log('items lenght = '+ items.length);
-                $.each(items ,function(){
-                    console.dir(this);
-                    /*
+    let $availableCarts = $('<section class="available-carts"></section>');
+
+    client.getEntries()
+        .then((response) => {
+            let items = response.items;
+
+            if( items.length > 0 ){  // -- has items
+
+                $('.golf-carts-unavailable').hide();
+
+                $.each(items,function(i) {
                     const fields = this.fields;
-                    let title = fields.title;
-                    let discription = fields.imageCaption;
-                    let url = fields.photo.fields.file.url;
+                    let $cart = $('<div class="cart"></div>');
 
-                    let $cartForSale = $('<div class="cart-for-sale"></div>');
-                    let $imgTag = $('<img src="'+url+'" alt="'+title+'" />');
-                    let $discription = $('<div></div').html( marked(discription) );
+                    let $title = $('<h4></h4>').text(fields.title);
+                    let $description = $('<div class="description"></div>').html( marked(fields.description) );
+                    $cart.append($title);
+                    $cart.append($description);
 
-                    $cartForSale
-                        .append($imgTag)
-                        .append($discription)
-                        .appendTo($gallery);
-                    */
+                    if( fields.photos.length > 0 ){
+                        let $photos = $('<div class="photos"></div>');
+
+                        $.each(fields.photos,function () {
+                            const url = this.fields.file.url;
+                            //const fields = this.fields;
+                            let $wrapper = $('<a></a>');
+                            $wrapper
+                                .attr({
+                                    "href": url,
+                                    "data-fancybox": "group"+i
+                                })
+                                .append(
+                                    $('<img/>').attr({
+                                        "alt": this.fields.title,
+                                        "src": url
+                                    })
+                                );
+
+                            $photos.append($wrapper);
+
+                        });
+                        $cart.append($photos);
+                    }
+
+                    $availableCarts.append($cart);
+
                 });
 
-                //$('.gallery').append($currentlyAvailable);
+                $('.golf-carts-page').append($availableCarts);
 
-                // for ( let item in items) {
-                //   console.log(item);
-                // }
+                const $info = $(
+                    '<div class="info"><h3>Available Carts</h3><p>All carts are freshly serviced and ready to hit the course! Looking for a recreational ride? We can outfit any of these carts with flip-back seats, lights, lift-kits and more!</p></div>'
+                );
 
-                //console.log('\n \x1b[32m Want to go further? Feel free to check out this guide: \x1b[34m\x1b[4mhttps://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/')
-            })
-            .catch((error) => {
-                console.log('error occured');
-                console.log(error);
-            })
+                $availableCarts.prepend($info);
 
+                fancyboxInit();
 
+            } // -- has items
 
+        })
+        .catch((error) => {
+            console.log('error occured');
+            console.log(error);
+        })
 
-    });
-})();
+});
