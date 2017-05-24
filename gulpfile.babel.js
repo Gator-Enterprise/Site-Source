@@ -133,7 +133,8 @@ gulp.task('scripts', () => {
                 './app/scripts/home-page.js',
                 './app/scripts/contact-page.js',
                 './app/scripts/golf-cart-page.js',
-                './app/scripts/engine-page.js'
+                './app/scripts/engine-page.js',
+                './app/scripts/services-page.js'
             ],
             plugins: babel({"modules":false})
         }))
