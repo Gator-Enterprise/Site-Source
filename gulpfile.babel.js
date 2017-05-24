@@ -26,12 +26,9 @@
 
 import path from 'path';
 import gulp from 'gulp';
-import babel from 'gulp-babel'
-//import rollup from 'gulp-rollup';
-//import rollup from 'rollup';
-//var rollup = require( 'rollup' );
-var rollup= require( 'gulp-rollup');
-
+import babel from 'gulp-babel';
+const rollup = require( 'gulp-rollup');
+// ^brought in via traditional method since package hasn't been modularized
 import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
@@ -122,81 +119,7 @@ gulp.task('styles', () => {
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 gulp.task('scripts', () => {
-//--
-//     gulp.src('./app/scripts/**/*.js')
-//         .pipe(rollup({
-//             entry:['./app/scripts/engine-page-alt.js'],
-//             plugins: [
-//                 babel({
-//                     exclude: 'node_modules/**' // only transpile our source code
-//                 })
-//             ]
-//         }))
-//         .pipe(gulp.dest('./dist'));
-//
-//     gulp.src('./app/scripts/engine-page-alt.js')
-//         .pipe($.rollup())
-//         .pipe(babel())
-//         .pipe($.sourcemaps.write('.'))
-//         .pipe(gulp.dest('dist/scripts'));
-
-        //.pipe($.sourcemaps.write('.'))
-        //.pipe(gulp.dest('dist/scripts'));
-
-    // rollup({
-    //     entry: './app/scripts/engine-page-alt.js',
-    //     plugins: [
-    //
-    //     ]
-    // }).then(function (bundle) {
-    //     // generate the bundle with sourcemaps and write it
-    //     bundle.write({
-    //         dest: 'bundle.js',
-    //         sourceMap: true
-    //     });
-    // });
-
-
-    // Rollup and write main.js
-    // return rollup
-    //     .rollup(read)
-    //     .then(bundle => {
-    //         // generate the bundle
-    //         const files = bundle.generate(write);
-    //
-    //         // write the files to dist
-    //         fs.writeFileSync('dist/bundle.js', files.code);
-    //         fs.writeFileSync('dist/maps/bundle.js.map', files.map.toString());
-    //     });
-//--
-
     gulp.src('./node_modules/jquery/dist/jquery.min.js').pipe(gulp.dest('dist/scripts'));
-
-/*
-    // -- engine-page.js ...blah
-    gulp.src([
-        // Note: Since we are not using useref in the scripts build pipeline,
-        //       you need to explicitly list your scripts here in the right order
-        //       to be correctly concatenated
-        './app/scripts/lib/menuToggle.js',
-        './app/scripts/lib/fancybox.js',
-        './app/scripts/engine-page.js'
-
-        // Other scripts
-    ])
-        .pipe($.newer('.tmp/scripts'))
-        .pipe($.sourcemaps.init())
-        .pipe(babel())
-        .pipe($.sourcemaps.write())
-        .pipe(gulp.dest('.tmp/scripts'))
-        .pipe($.concat('engine-page.js'))
-        //.pipe($.uglify())
-        // Output files
-        .pipe($.size({title: 'scripts'}))
-        .pipe($.sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/scripts'))
-        .pipe(gulp.dest('.tmp/scripts'));
-*/
 
     gulp.src([
         './app/scripts/**/*.js',
@@ -210,29 +133,13 @@ gulp.task('scripts', () => {
                 './app/scripts/home-page.js',
                 './app/scripts/contact-page.js',
                 './app/scripts/golf-cart-page.js',
-                './app/scripts/engine-page-alt.js'
+                './app/scripts/engine-page.js'
             ],
             plugins: babel({"modules":false})
         }))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/scripts'))
         .pipe(gulp.dest('.tmp/scripts')); //.tmp is used to serve
-
-/*
-    return rollup.rollup({
-            entry: "./app/scripts/engine-page-alt.js",
-            plugins: [
-                babel({"modules":false})
-            ],
-    }).then(function (bundle) {
-        bundle.write({
-            format: 'iife',
-            dest: './dist/scripts/bundle.js',
-            sourceMap: true
-        });
-    })
-*/
-
 });
 
 
