@@ -13,34 +13,31 @@ jQuery(document).ready(function($) {
         accessToken: ACCESS_TOKEN
     });
 
-    //let $availableEngines = $('<div class="available-engines"></div>');
-    let $availableEngines = $('<section class="available-engines"></section>')
+    let $availableEngines = $('<section class="available-engines"></section>');
 
     client.getEntries()
         .then((response) => {
             let items = response.items;
 
-            if( items.length > 0 ){  // -- has items
-
-
+            if( items.length > 0 ){  // - has items
                 $('.engines-unavailable').hide();
 
-                $.each(items,function(i) {
+                $.each(items,function(i) { // -- for each item
                     const fields = this.fields;
                     let $engine = $('<div class="engine"></div>');
-
                     let $title = $('<h4></h4>').text(fields.title);
                     let $description = $('<div class="description"></div>').html( marked(fields.description) );
+
                     $engine.append($title);
                     $engine.append($description);
 
-                    if( fields.photos.length > 0 ){
+                    if( fields.photos.length > 0 ){ // --- has photos
                         let $photos = $('<div class="photos"></div>');
 
-                        $.each(fields.photos,function () {
+                        $.each(fields.photos,function () { // ---- each photo
                             const url = this.fields.file.url;
-                            //const fields = this.fields;
                             let $wrapper = $('<a></a>');
+
                             $wrapper
                                 .attr({
                                     "href": url,
@@ -54,14 +51,13 @@ jQuery(document).ready(function($) {
                                 );
 
                             $photos.append($wrapper);
+                        }); // ---- end each photo
 
-                        });
                         $engine.append($photos);
-                    }
+                    } // --- end has photos
 
                     $availableEngines.append($engine);
-
-                });
+                }); // -- end each item
 
                 $('.engines-page').append($availableEngines);
 
@@ -70,11 +66,8 @@ jQuery(document).ready(function($) {
                 );
 
                 $availableEngines.prepend($info);
-
                 fancyboxInit();
-
-
-            } // -- has items
+            } // - end has items
 
         })
         .catch((error) => {
@@ -82,51 +75,5 @@ jQuery(document).ready(function($) {
             console.log(error);
         });
 
-    /*
-     const SPACE_ID = 'f46hoomog4ih'
-     const ACCESS_TOKEN = '45839970353b21dcf858f422a0c4f514a03e0224f2bd712a7ed0bba5901a12c4'
-
-     const client = contentful.createClient({
-     space: SPACE_ID,
-     accessToken: ACCESS_TOKEN
-     })
-
-     let $gallery = $('<div class="gallery"></div>');
-
-     client.getEntries()
-     .then((response) => {
-     let items = response.items;
-     $.each(items ,function(){
-     console.dir(this);
-     const fields = this.fields;
-     let title = fields.title;
-     let discription = fields.imageCaption;
-     let url = fields.photo.fields.file.url;
-
-     let $galleryItem = $('<div class="gallery-item"></div>');
-     let $imgTag = $('<img src="'+url+'" alt="'+title+'" />');
-     let $discription = $('<div></div').html( marked(discription) );
-
-     $galleryItem
-     .append($imgTag)
-     .append($discription)
-     .appendTo($gallery);
-     });
-
-     $('.gallery').append($gallery);
-
-     // for ( let item in items) {
-     //   console.log(item);
-     // }
-
-     //console.log('\n \x1b[32m Want to go further? Feel free to check out this guide: \x1b[34m\x1b[4mhttps://www.contentful.com/developers/docs/javascript/tutorials/using-js-cda-sdk/')
-     })
-     .catch((error) => {
-     console.log('error occured');
-     console.log(error);
-     })
-
-
-     */
 
 });
