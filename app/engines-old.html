@@ -18,23 +18,12 @@
         
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="styles/gator.css">
-        
-
         <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-        <script>
-            if (typeof jQuery == 'undefined') {
-                document.write(unescape("%3Cscript src='/scripts/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-            }
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
-        <script src="https://npmcdn.com/contentful@latest/dist/contentful.min.js"></script>
-
-        <script src="scripts/engine-page-alt.js"></script>
     </head>
-    <body class="engines-page">
+    <body class="contact-page">
         <header>
             <nav role="navigation"> 
                 <ul>
@@ -61,21 +50,35 @@
         <div class="shadow"></div>
         
 
-        <section class="engines-unavailable">
+        <section class="engines-coming-soon">
             <div>
                 <img src="/images/engine.jpg" alt="Engine" />                
             </div>
             <div class="dark">
-                <h3>More engines coming soon. </h3>
+                <h3>Engines page coming soon. </h3>
+                <p> Check out some of our latest work on our <a href="https://www.facebook.com/GatorEnterprise/" target="_blank">Facebook page</a></p>
+
                 <p>
-                    We don't have any engines currently available, but you can check out some of our latest work on our <a href="https://www.facebook.com/GatorEnterprise/" target="_blank">Facebook page</a>
-                </p>
-                <p>
-                    Interested in our prices? <br><a href="/engine-quote-tool">Click here</a> to check out our engine quote tool. 
+                    Interested in our prices? <a href="/engine-quote-tool">Click here</a> to check out our engine quote tool. 
                 </p>
             </div>
             
-        </section>
+        </section> 
+
+        <script>
+            jQuery(document).ready(function($) { 
+                $('#menu-toggle').click(function(){
+                    $(this).toggleClass('is-active');
+                    if( $(this).hasClass('is-active') ){
+                        $('.mobile-menu-items').addClass('show');
+                    } else {
+                        $('.mobile-menu-items').removeClass('show');
+                    }
+                });
+            });
+        </script>       
+
+            
     </body>    
 </html>
 
