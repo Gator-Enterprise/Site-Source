@@ -1,99 +1,238 @@
-  .mobile-nav {
-
+@media screen and (min-width: 761px) {
+  header {
+    background-color: rgba(0,0,0,0.25);
   }
-
-
-  //--- menu-toggle styling ---
-  // adapted from "Hamburgers" by Jonathan Suh | https://github.com/jonsuh/hamburgers
-  $hamburger-layer-width                     : 60px !default;
-  $hamburger-layer-height                    : 6px !default;
-  $hamburger-layer-spacing                   : 9px !default;
-  $interaction-timing                        : all 250ms ease;
-
-  %toggle-active {
-    .toggle-inner {
-      $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
-      transform: translate3d(0, $y-offset, 0) rotate(45deg);
-      &::before {
-        transform: rotate(-45deg) translate3d($hamburger-layer-width / -7, $hamburger-layer-spacing * -1, 0);
-        opacity: 0;
-      }
-      &::after {
-        transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
-      }
-    }
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-    cursor: pointer;
-
+}
+@media screen and (max-width:760px) {
+  header {
+    background-color:rgba(0,0,0,0.75);
+    padding: 0;
     position: relative;
-    z-index: 3;
+    z-index: 2;
 
-    // Normalize (<button>)
-    font: inherit;
-    color: inherit;
-    text-transform: none;
-    background-color: transparent;
-    border: 0;
-    margin: 0;
-    overflow: visible;
-    padding:0;
-
-    &:focus,
-    &:active {
-      outline-color: transparent;
-      outline-style: none;
-      outline-width: 0px;
+    nav {
+      padding-left:0;
+      padding-right:0;
+      & > ul {display: none;}
     }
-    &.is-active {
-      @extend %toggle-active;
+
+    .mobile-nav {
+      padding:1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
+      overflow: hidden;
+      position:relative;
+      box-sizing: border-box;
+      a {padding:0;}
+      .logo {
+        padding-bottom:0;
+        max-height: 120px;
+        max-width: 50vw;
+      }
+      .mobile-menu-items {
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        right: -100%;
+        transition: right 200ms;
+        width: 100%;
+        background-color:rgba(0,0,0,0.75);
+
+        //min-width:50vw;
+        &.show { right:0; }
+
+        a {cursor: pointer;}
+
+        ul {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          //justify-content: space-between;
+          //align-items: center;
+          // padding-right: calc( #{$hamburger-layer-width} + 2.5rem );
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          box-sizing:border-box;
+          //--
+          flex-wrap: wrap;
+          align-items: center;
+          align-content: center;
+          justify-content: center;
+
+
+
+        }
+        svg {height: 60px;}
+        li {
+          display: flex;
+          align-items: center;
+          padding:0.5rem 0.75rem;
+          padding:0.5rem 1rem;
+          &:hover {
+            a {color: $purple;}
+          }
+        }
+
+      }
+
+    }
+
+  }
+  .shadow {
+    display: none;
+    top:0;
+  }
+  /* -- todo: up arrow idea
+      body {
+          &::after {
+              content: '▲';
+              color: #fff;
+              position: fixed;
+              right:0.5rem;
+              bottom: 0.5rem;
+
+          }
+      }
+  */
+}
+@media screen and (max-width:475px) {
+  header .mobile-nav .mobile-menu-items {
+    ul {
+      padding-left:0.5rem;
+      align-content: flex-start;
+    }
+
+  }
+}
+@media screen and (max-width:380px) {
+  header .mobile-nav {
+    padding: 1rem;
+    .mobile-menu-items ul {
+      align-content: center;
+    }
+  }
+  #menu-toggle.is-active {
+    transform-origin: bottom right;
+    transform: scale(0.5);
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width:300px ) {
+  header .mobile-nav {
+    min-height: 160px;
+    font-size: 75%;
+    & > a {
+      display: flex;
+      align-items: center;
+    }
+    .mobile-menu-items ul {
+      padding: 0.75rem 0.5rem;
+      li {
+        padding:0.25rem 0;
+      }
     }
   }
 
-  .toggle-box {
-    width: $hamburger-layer-width;
-    height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
-    display: inline-block;
-    position: relative;
-  }
+}
 
+
+
+//--- menu-toggle styling ---
+// adapted from "Hamburgers" by Jonathan Suh | https://github.com/jonsuh/hamburgers
+$hamburger-layer-width                     : 60px !default;
+$hamburger-layer-height                    : 6px !default;
+$hamburger-layer-spacing                   : 9px !default;
+$interaction-timing                        : all 250ms ease;
+
+%toggle-active {
   .toggle-inner {
-    display: block;
-    top: $hamburger-layer-height / 2;
-    margin-top: $hamburger-layer-height / -2;
-
-    &,
-    &::before,
-    &::after {
-      width: $hamburger-layer-width;
-      height: $hamburger-layer-height;
-      background-color: #FFF;
-      border-radius: $hamburger-layer-height;
-      position: absolute;
-      transition-property: transform;
-      transition-duration: 0.15s;
-      transition-timing-function: ease;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-    }
-
+    $y-offset: $hamburger-layer-spacing + $hamburger-layer-height;
+    transform: translate3d(0, $y-offset, 0) rotate(45deg);
     &::before {
-      //top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
-      top: $hamburger-layer-height + $hamburger-layer-spacing;
-      transition-property: transform, opacity;
-      transition-timing-function: ease;
-      transition-duration: 0.2s;
+      transform: rotate(-45deg) translate3d($hamburger-layer-width / -7, $hamburger-layer-spacing * -1, 0);
+      opacity: 0;
     }
-
     &::after {
-      bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
-      top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
+      transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
     }
   }
+}
+
+.menu-toggle {
+  display: inline-flex;
+  cursor: pointer;
+
+  position: relative;
+  z-index: 3;
+
+  // Normalize (<button>)
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  padding:0;
+
+  &:focus,
+  &:active {
+    outline-color: transparent;
+    outline-style: none;
+    outline-width: 0px;
+  }
+  &.is-active {
+    @extend %toggle-active;
+  }
+}
+
+.toggle-box {
+  width: $hamburger-layer-width;
+  height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-inner {
+  display: block;
+  top: $hamburger-layer-height / 2;
+  margin-top: $hamburger-layer-height / -2;
+
+  &,
+  &::before,
+  &::after {
+    width: $hamburger-layer-width;
+    height: $hamburger-layer-height;
+    background-color: #FFF;
+    border-radius: $hamburger-layer-height;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    //top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    top: $hamburger-layer-height + $hamburger-layer-spacing;
+    transition-property: transform, opacity;
+    transition-timing-function: ease;
+    transition-duration: 0.2s;
+  }
+
+  &::after {
+    bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    top: ($hamburger-layer-height * 2) + ($hamburger-layer-spacing * 2);
+  }
+}
 

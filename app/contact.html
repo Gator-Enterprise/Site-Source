@@ -19,9 +19,14 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="styles/gator.css">
         <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+                src="https://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='/scripts/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+            }
+        </script>
     </head>
     <body class="contact-page">
         <header>
@@ -29,6 +34,7 @@
                 <ul>
                     <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
                     <li class="menu-item"><a href="/">Home</a></li>
+                    <li class="menu-item"><a href="/marine">Marine</a></li>
                     <li class="menu-item"><a href="/engines">Engines</a></li>
                     <li class="menu-item"><a href="/golf-carts">Golf Carts</a></li>
                     <li class="menu-item active"><a href="/contact">Contact Us</a></li>
@@ -41,6 +47,7 @@
                     <div class="mobile-menu-items">
                         <ul>
                             <li><a href="/">Home</a></li>
+                            <li><a href="/marine">Marine</a></li>
                             <li><a href="/engines">Engines</a></li>
                             <li><a href="/golf-carts">Golf Carts</a></li>
                             <li class="active"><a href="/contact">Contact Us</a></li>
@@ -83,7 +90,7 @@
 
             </div>
             <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2973.268094605106!2d-92.43631268456063!3d41.822524879226606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e580c8d01e26d9%3A0xcc7661de3a7a3430!2s1786+328th+Ave%2C+Brooklyn%2C+IA+52211!5e0!3m2!1sen!2sus!4v1488402633047" frameborder="0" style="border:0" allowfullscreen></iframe>              
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5946.536177994059!2d-92.434124!3d41.822525!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x615f65d4e9085373!2sGator+Enterprise%2C+LLC!5e0!3m2!1sen!2sus!4v1502378364664" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </section>
 

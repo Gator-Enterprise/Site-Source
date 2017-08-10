@@ -209,10 +209,13 @@ strong { font-weight: 700; }
 }
 
 @import "home-page";
+@import "marine-page";
 @import "contact-page";
 @import "shared-item-styles";
 @import "engines-page";
 @import "golf-cart-page";
+@import "mobile-nav";
+
 
 //--fancybox fix
 .fancybox-slide {
@@ -233,102 +236,7 @@ strong { font-weight: 700; }
 }
 
 
-@media screen and (min-width: 761px) {
-    header {
-        background-color: rgba(0,0,0,0.25);
-    }
-}
-@media screen and (max-width:760px) {
-    header {
-        background-color:rgba(0,0,0,0.75);
-        padding: 0;
-        position: relative;
-        z-index: 2;
-    
-        nav {
-            padding-left:0;
-            padding-right:0;
-            & > ul {display: none;}
-        }
 
-        .mobile-nav {
-            padding:1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: stretch;
-            width: 100%;
-            overflow: hidden; 
-            position:relative;
-            box-sizing: border-box;
-            a {padding:0;}
-            .logo {
-                padding-bottom:0;
-                max-height: 120px;
-                max-width: 50vw;
-            }
-            .mobile-menu-items {
-                position:absolute;
-                top: 0;
-                bottom: 0;
-                right: -100%;
-                transition: right 200ms;
-                width: 100%;
-                background-color:rgba(0,0,0,0.75);
-
-                //min-width:50vw;
-                &.show { right:0; }
-
-                a {cursor: pointer;}
-
-                ul {
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    // padding-right: calc( #{$hamburger-layer-width} + 2.5rem );
-                    padding-top: 1rem;
-                    padding-bottom: 1rem;
-                    box-sizing:border-box;
-                }
-                li { 
-                    &:hover { 
-                        a {color: $purple;}
-                    }
-                }
-
-            }
-            
-        }
-
-    }
-    .shadow {
-        display: none;
-        top:0;
-    }
-    /* -- todo: up arrow idea
-        body {
-            &::after {
-                content: '▲';
-                color: #fff;
-                position: fixed;
-                right:0.5rem;
-                bottom: 0.5rem;
-
-            }
-        }
-    */
-}
-@media screen and (max-width:360px) {
-    header .mobile-nav {
-        padding:1rem;
-    }
-    #menu-toggle.is-active {
-        transform-origin: bottom right;
-        transform: scale(0.5);
-
-    }
-}
 
 @import "services-pages";
 

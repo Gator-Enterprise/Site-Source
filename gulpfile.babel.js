@@ -130,10 +130,11 @@ gulp.task('scripts', () => {
         .pipe(rollup({
             // any option supported by Rollup can be set here.
             entry: [
-                './app/scripts/home-page.js',
                 './app/scripts/contact-page.js',
-                './app/scripts/golf-cart-page.js',
                 './app/scripts/engine-page.js',
+                './app/scripts/golf-cart-page.js',
+                './app/scripts/home-page.js',
+                './app/scripts/marine-page.js',
                 './app/scripts/services-page.js'
             ],
             plugins: babel({"modules":false})
