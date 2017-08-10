@@ -1,9 +1,7 @@
 .marine-page {
-    @extend %available-items-photos;
     .page-title {
         @include text-shadow;
         margin-top: $block-spacing*1.5;
-        //margin-bottom: $block-spacing;
         width: 100%;
         font-size: 3rem;
         text-align: center;
@@ -11,22 +9,87 @@
 
     }
 
-    & > section:first-of-type {
+
+    .winterize {
+        margin-top: $block-spacing*1.5;
+        line-height: 1.25;
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
+        justify-content: center;
+        padding-left: $block-spacing/2;
+        padding-right: $block-spacing/2;
+        padding-bottom: $block-spacing;
+
         div {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            flex-basis: 30%;
+        }
+        h2{
+            flex-basis: 100%;
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: $block-spacing/2;
+        }
 
-            margin-top: $block-spacing*1.5;
-            line-height: 1.25;
-            p {
+
+        h4 {
+            font-size: 1.60rem;
+            text-align: center;
+        }
+        h4,li {
+            margin-bottom: 0.75rem;
+        }
+        ul {
+            flex:1;
+            padding-left:0.5rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        li{
+            & > p:first-of-type {
+                //font-family: Arial, Helvetica, sans-serif;
                 font-size: 1.25rem;
-                margin-bottom: 0.5rem;
-                text-align: center;
+                font-weight: 700;
+                span {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    font-style: italic;
+                }
             }
-            ul {
-                padding-left:1rem;
+
+        }
+        .boat-type {
+            margin-left: $block-spacing/2;
+            margin-right: $block-spacing/2;
+            padding:1rem;
+            list-style: none;
+            border: 1px solid $dark ;
+            margin-bottom: $block-spacing;
+            &+.boat-type+.boat-type { // ಠ_ಠ
+                //margin-bottom: 0;
+            }
+        }
+        .notes {
+            margin-left: $block-spacing/2;
+            margin-right: $block-spacing/2;
+            padding:0;
+            a {
+                color:#000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            strong {
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 700;
+                text-decoration: underline;
+                padding-bottom: 0.25rem;
+
             }
             li {
                 position: relative;
@@ -34,26 +97,24 @@
                 &::before {
                     content: '•';
                     position: absolute;
+                    font-size: 1.2rem;
+                    line-height: 1;
                     left:0;
                 }
             }
-            @media screen and (min-width: 761px)  {
-                flex:2;
-                &:last-of-type {
-                    flex:1;
-                    margin-left: $block-spacing;
-                }
-
-
+            small {
+                text-align: right;
+                font-style: italic;
+                font-size: 0.9rem;
             }
         }
-        @media screen and (max-width: 760px)  {
-            display: block;
+        @media screen and (min-width: 641px) {
+            .notes { max-width: 65%; }
         }
 
-    }
-    .service ul {
-        column-count: 2;
+        @media screen and (max-width: 640px)  {
+            div { flex-basis: 75%; }
+        }
     }
     .info {
         @extend .dark;

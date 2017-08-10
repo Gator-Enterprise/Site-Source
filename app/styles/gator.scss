@@ -9,7 +9,7 @@
 html {min-width: 270px;}
 body {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    
+
     background-image: url('/images/diamond-plate-background-black.jpg');
 
     //background-size: cover;
@@ -116,6 +116,9 @@ a {
         outline-style: hidden;
     }
 }
+h1,h2,h3,h4{
+    -webkit-font-smoothing: antialiased;
+}
 h1,
 h2,
 h3 {    
@@ -126,7 +129,9 @@ h3 {
 
 h4 { font-weight: 700;}
 
-p { line-height: 1.25; }
+p {
+    line-height: 1.25;
+}
 
 strong { font-weight: 700; }
 .dark {
