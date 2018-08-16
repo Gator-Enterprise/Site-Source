@@ -11,6 +11,7 @@
 
 
     .winterize {
+        background-color: black;
         margin-top: $block-spacing*1.5;
         line-height: 1.25;
         display: flex;
@@ -19,13 +20,17 @@
         padding-left: $block-spacing/2;
         padding-right: $block-spacing/2;
         padding-bottom: $block-spacing;
+        & > h2 {color: white;}
 
-        div {
+
+        div {            
             flex: 1;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            flex-basis: 30%;
+            //flex-basis: 30%;
+            flex-basis: 20%;
+            text-align: center;
         }
         h2{
             flex-basis: 100%;
@@ -34,14 +39,19 @@
             margin-bottom: $block-spacing/2;
         }
 
-
         h4 {
-            font-size: 1.60rem;
-            text-align: center;
+            font-size: 1.25rem;
+//            text-align: center;
         }
-        h4,li {
+        em {
+            font-style: italic;            
+        }
+        /*
+        //h4,li {
+        li {
             margin-bottom: 0.75rem;
         }
+        */
         ul {
             flex:1;
             padding-left:0.5rem;
@@ -64,6 +74,7 @@
 
         }
         .boat-type {
+            background-color: white;
             margin-left: $block-spacing/2;
             margin-right: $block-spacing/2;
             padding:1rem;
@@ -73,23 +84,30 @@
             &+.boat-type+.boat-type { // ಠ_ಠ
                 //margin-bottom: 0;
             }
+            .spark{
+                font-style: italic;
+                font-size: 0.8rem;
+            }
+
         }
+
         .notes {
+            color: white;
             margin-left: $block-spacing/2;
             margin-right: $block-spacing/2;
             padding:0;
+            text-align: left;
             a {
-                color:#000;
+                color: white;
                 text-decoration: none;
                 cursor: pointer;
             }
-            strong {
-                text-align: center;
+            h4, li {padding-bottom: 0.25rem;}
+            h4 {                
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: 700;
                 text-decoration: underline;
                 padding-bottom: 0.25rem;
-
             }
             li {
                 position: relative;
