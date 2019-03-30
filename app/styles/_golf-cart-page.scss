@@ -66,10 +66,27 @@
         }
     }
 }
-
+.golf-carts-photos,
 .golf-carts-unavailable,
 .golf-carts-coming-soon {
     @extend %no-items-available-section;
+}
+.golf-carts-photos {
+    div {
+        position: relative;
+    }
+    img {
+        //min-height: 450px;
+        height: auto;
+        width: 100;
+        &:not(:first-child) {
+            position: absolute;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+        }
+    }
 }
 
 .available-carts {
