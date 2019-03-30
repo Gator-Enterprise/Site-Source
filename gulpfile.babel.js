@@ -128,6 +128,7 @@ gulp.task('scripts', () => {
     // transform the files here.
         .pipe($.sourcemaps.init())
         .pipe(rollup({
+            format: 'iife',
             // any option supported by Rollup can be set here.
             entry: [
                 './app/scripts/contact-page.js',
