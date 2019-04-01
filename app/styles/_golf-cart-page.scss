@@ -54,6 +54,9 @@
     }
     .service ul {
         column-count: 2;
+        @media screen and (max-width: 480px){
+            column-count: 1;
+        }
     }
     .info {
         @extend .dark;
@@ -75,16 +78,46 @@
     div {
         position: relative;
     }
+
     img {
         //min-height: 450px;
+        // transition: opacity 1s ease-in-out;
         height: auto;
-        width: 100;
-        &:not(:first-child) {
-            position: absolute;
-            top:0;
-            right:0;
-            left:0;
-            bottom:0;
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+        top:0;
+        right:0;
+        left:0;
+        bottom:0;
+        &.active {
+            position: relative;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        &.next {
+            z-index: 4;
+            opacity: 1
+        }
+
+
+        // .next {
+        //     z-index: 4;
+        //     opacity: 0;
+        // }
+        // .fading {
+        //     opacity: 0;
+        // }
+        // .uninvolved {
+        //     z-index: 1;
+        //     opacity: 1;
+        // }
+    }
+    .dark {z-index: 10;}
+    @media screen and (max-width: 480px){
+        .dark {
+            h3 {font-size:  1.8rem;}
         }
     }
 }
