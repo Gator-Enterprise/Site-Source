@@ -166,6 +166,7 @@ $interaction-timing                        : all 250ms ease;
 .menu-toggle {
   display: inline-flex;
   cursor: pointer;
+  align-items: center;
 
   position: relative;
   z-index: 3;
