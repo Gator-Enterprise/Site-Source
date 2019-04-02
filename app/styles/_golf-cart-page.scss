@@ -101,20 +101,13 @@
             opacity: 1
         }
 
-
-        // .next {
-        //     z-index: 4;
-        //     opacity: 0;
-        // }
-        // .fading {
-        //     opacity: 0;
-        // }
-        // .uninvolved {
-        //     z-index: 1;
-        //     opacity: 1;
-        // }
     }
-    .dark {z-index: 10;}
+    .dark {
+        z-index: 10;
+    }
+    @media screen and (max-width: 1200px){
+        .dark p>br {display: none;}
+    }
     @media screen and (max-width: 480px){
         .dark {
             h3 {font-size:  1.8rem;}
