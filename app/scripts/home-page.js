@@ -21,10 +21,10 @@ jQuery(document).ready(function($) {
     let recalc = function() {
         clearTimeout(timeout);
         timeout = setTimeout(function() {
-            let container_width = $('#timeline').width();
+            let container_width = $('#stay-in-touch').width();
             $('#timeline').html('<div class="fb-page" ' +
                 'data-href="https://www.facebook.com/GatorEnterprise/"' +
-                ' data-width="' + container_width + '" data-height="640" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-tabs="timeline"><div class="fb-xfbml-parse-ignore"><blockquote cite="Yhttps://www.facebook.com/GatorEnterprise/"><a href="https://www.facebook.com/GatorEnterprise/">Gator Enterprise</a></blockquote></div></div>');
+                ' data-width="' + container_width + '" data-height="608" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-tabs="timeline"><div class="fb-xfbml-parse-ignore"><blockquote cite="Yhttps://www.facebook.com/GatorEnterprise/"><a href="https://www.facebook.com/GatorEnterprise/">Gator Enterprise</a></blockquote></div></div>');
             if(typeof FB !== 'undefined') {
                 FB.XFBML.parse( );
             }

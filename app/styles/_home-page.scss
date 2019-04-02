@@ -4,13 +4,13 @@
     display: flex;
     align-items: center;
     letter-spacing: 2px;
-    
+
     div {
         @extend .dark;
         align-self: stretch;
         padding: 1rem;
-    }    
-    
+    }
+
     .image,
     img {
         //width: 60%;
@@ -22,14 +22,14 @@
         flex-basis: 40%;
         padding-left:2rem;
     }
-    
+
     .image {
         background-image: url('/images/inside.jpg');
         background-size: cover;
         background-position: center bottom;
         background-repeat: no-repeat;
         position: relative;
-    }    
+    }
     a {color:$purple;}
     ul {
         margin-left: 0;
@@ -52,26 +52,26 @@
             height: 1.5rem;
             width: 0.5rem;
             padding-right: 1rem;
-        }        
+        }
 
 
     }
 
     .image,
     img,
-    div {        
-        box-sizing:border-box;    
+    div {
+        box-sizing:border-box;
         flex-grow: 1;
-        flex-shrink: 1;    
+        flex-shrink: 1;
     }
 
     .overlay {
         @include text-shadow;
         position: absolute;
         bottom: 0;
-        left: 0;        
+        left: 0;
         right: 0;
-        background-color: rgba(#2c2c2c, 0.75);                
+        background-color: rgba(#2c2c2c, 0.75);
         width: 100%;
         text-align: center;
     }
@@ -83,14 +83,14 @@
         .overlay h3 {font-size: 1.5rem;}
     }
     @media screen and (max-width: 580px) {
-       
+
        flex-wrap: wrap;
        .image,
        .services {
         flex-basis: 100%;
        }
-       .image {min-height: 280px;}       
-          
+       .image {min-height: 280px;}
+
 
     }
 }
@@ -102,20 +102,52 @@
     & > div {
         flex-basis: 50%;
         margin-top: 0;
-    }    
+    }
     .map iframe {min-height: 300px;}
 
 }
-#timeline {
+
+#newsletter {
+    min-height: 200px;
+    background: linear-gradient(rgba(255,255,255,0) 33%, rgba(255,255,255,1) 100%), url('/images/newsletter.jpg');
+    background-size: 100% auto;
+    margin-bottom: 2rem;
+    position: relative;
+    a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: $purple;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 1.5rem;
+        font-size: 1.75rem;
+        font-weight: 700;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+        text-transform: uppercase;
+        text-align: center;
+
+
+    }
+}
+
+#stay-in-touch {
+    background: transparent;
     margin-right: 2rem;
     margin-bottom: 0;
     padding: 0;
     max-width: 500px;
-    height: 640px;
-    background-image: url(/images/loading.svg);
-    background-repeat: no-repeat;
-    background-position: center 3rem;
-    & + .location-info {height: 640px;}
+    height: 840px;
+    & + .location-info {height: 840px;}
+
+    #timeline {
+        background-image: url(/images/loading.svg);
+        background-repeat: no-repeat;
+        background-position: center 3rem;
+    }
 }
 .map + .location-info {
     margin-left: 2rem;
@@ -129,12 +161,12 @@
         height: 50%;
         iframe {min-height: 250px;}
     }
-    .general-info { 
+    .general-info {
         @extend %info-block;
-        padding: 1rem; 
+        padding: 1rem;
         height: 50%;
 
-        @media screen and (min-width:1100px) { 
+        @media screen and (min-width:1100px) {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -148,35 +180,41 @@
         align-items: center;
         width: 100%;
         text-align: center;
-        padding-bottom: 1.5rem; 
-    }   
+        padding-bottom: 1.5rem;
+    }
     li,
     p {
         span{ padding-left: 1rem;}
     }
 }
 
-@media screen and (max-width:720px) { 
-    #timeline {
+@media screen and (max-width:720px) {
+    #stay-in-touch {
         margin-left:auto;
         margin-right:auto;
     }
-    #timeline,
+    #stay-in-touch,
     .map {order: 2;}
     .location-info {order: 1;}
-    #timeline + .location-info {
+    #stay-in-touch + .location-info {
         height:100%;
     }
     .home-content {
         flex-wrap: wrap;
-        & > div {        
+        & > div {
             flex-basis: 100%;
+        }
+        #stay-in-touch {
+            max-width: unset;
+        }
+        #timeline {
+            text-align: center;
         }
     }
 
     .map + .location-info {margin-left: 0;}
-            
-}        
+
+}
 
 
 

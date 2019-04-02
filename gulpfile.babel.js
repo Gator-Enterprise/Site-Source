@@ -81,6 +81,12 @@ gulp.task('copy', () =>
     .pipe($.size({title: 'copy'}))
 );
 
+gulp.task('copy_newsletters', ()=>
+  gulp.src(
+    ['app/newsletters/*.pdf']
+  )
+  .pipe(gulp.dest('dist/newsletters'))
+);
 // Compile and automatically prefix stylesheets
 gulp.task('styles', () => {
   const AUTOPREFIXER_BROWSERS = [
@@ -187,7 +193,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     //       will present a certificate warning in the browser.
     // https: true,
     server: ['.tmp', 'app'],
-    port: 3000
+    port: 4000
   });
 
   gulp.watch(['app/**/*.html'], reload);
@@ -216,7 +222,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['html', 'scripts', 'images', 'copy'],
+    ['html', 'scripts', 'images', 'copy', 'copy_newsletters'],
     'generate-service-worker',
     cb
   )
