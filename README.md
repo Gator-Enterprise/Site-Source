@@ -1,8 +1,12 @@
 ## Gator Enterprise site-specfic info
 
-Manually adding dist files from [fancybox](https://github.com/fancyapps/fancybox) because npm craps itself when trying
-to load it via that.
+correctly builds using `node v6.11.4`  
+`yarn run gulp` - builds for prod  
+`yarn run gulp serve` - builds, serves on `http://localhost:4000/`, & watches for changes (`serve:dist` same as `serve` but as prod)  
 
+
+Don't think this is relevant anymore?   
+~~Manually adding dist files from [fancybox](https://github.com/fancyapps/fancybox) because npm craps itself when trying to load it via that~~
 
 ---
 
