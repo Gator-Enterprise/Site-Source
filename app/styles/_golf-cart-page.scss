@@ -116,9 +116,30 @@
 }
 
 .available-carts {
-    @extend %available-items-photos;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap; 
+    &> div {padding: 0;}
+    .info {
+        margin: 1rem 1rem 0;
+        flex-basis: 100%;
+    }
+    // @extend %available-items-photos;
     .cart {
-        @extend %available-item-styles;
+        width: 33%;
+        height: auto;
+        padding:1rem;
+        box-sizing: border-box;
+        // @extend %available-item-styles;
+        // max-width: 100%;
+        
+        @media screen and (max-width: 900px){
+            width: 50%;
+        }
+        @media screen and (max-width: 640px){
+            width: 100%;
+        }
+
     }
 
 }

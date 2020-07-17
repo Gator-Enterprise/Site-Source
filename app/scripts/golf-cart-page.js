@@ -12,11 +12,6 @@ jQuery(document).ready(function($) {
         accessToken: ACCESS_TOKEN
     });
 
-// client.getAssets().then((response)=>{
-//     console.dir(response);
-// });
-    
-
     const $activeImage = $('.golf-carts-photos .active');
 
     const $availableCarts = $('<div>');
@@ -30,40 +25,8 @@ jQuery(document).ready(function($) {
 
                 $.each(items,function(i) {  // -- for each item
                     const fields = this.fields;
-                    //let $cart = $('<div class="cart"></div>');
-                    let $cart = $('<img src="'+this.fields.file.url+'" class="cart"></img>');
-                    // let $title = $('<h4></h4>').text(fields.title);
-                    // let $description = $('<div class="description"></div>').html( marked(fields.description) );
-
-
-                    // $cart.append($title);
-                    // $cart.append($description);
-/*
-                    if( fields.photos && fields.photos.length > 0 ){ // --- has photos
-                        let $photos = $('<div class="photos"></div>');
-
-                        $.each(fields.photos,function () { // ---- each photo
-                            const url = this.fields.file.url;
-                            let $wrapper = $('<a></a>');
-
-                            $wrapper
-                                .attr({
-                                    "href": url,
-                                    "data-fancybox": "group"+i
-                                })
-                                .append(
-                                    $('<img/>').attr({
-                                        "alt": this.fields.title,
-                                        "src": url
-                                    })
-                                );
-
-                            $photos.append($wrapper);
-                        }); // ---- end each photo
-
-                        $cart.append($photos);
-                    } // --- end has photos
-*/
+                    const altTag = this.fields.file.title || 'Golf Cart For Sale';
+                    let $cart = $('<img src="'+this.fields.file.url+'" class="cart" alt="'+this.fields.file.title+'"></img>');
                     $availableCarts.append($cart);
                 }); // -- end each item
 
@@ -76,7 +39,7 @@ jQuery(document).ready(function($) {
                 $availableCarts.prepend($info);
             // -- has items
             } else {
-                initEmpty();            
+                initEmpty(); 
             }
 
         })
