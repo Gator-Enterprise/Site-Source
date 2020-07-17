@@ -12,31 +12,33 @@ jQuery(document).ready(function($) {
         accessToken: ACCESS_TOKEN
     });
 
+// client.getAssets().then((response)=>{
+//     console.dir(response);
+// });
     
-
-
-
 
     const $activeImage = $('.golf-carts-photos .active');
 
-    const availableCarts = $('<div>');
+    const $availableCarts = $('<div>');
     
-    client.getEntries()
+    // client.getEntries()
+    client.getAssets()
         .then((response) => {
             let items = response.items;
-            debugger;
             if( items.length > 0 ){  // - has items
                 $('.no-carts').hide();
 
                 $.each(items,function(i) {  // -- for each item
                     const fields = this.fields;
-                    let $cart = $('<div class="cart"></div>');
-                    let $title = $('<h4></h4>').text(fields.title);
-                    let $description = $('<div class="description"></div>').html( marked(fields.description) );
+                    //let $cart = $('<div class="cart"></div>');
+                    let $cart = $('<img src="'+this.fields.file.url+'" class="cart"></img>');
+                    // let $title = $('<h4></h4>').text(fields.title);
+                    // let $description = $('<div class="description"></div>').html( marked(fields.description) );
 
-                    $cart.append($title);
-                    $cart.append($description);
 
+                    // $cart.append($title);
+                    // $cart.append($description);
+/*
                     if( fields.photos && fields.photos.length > 0 ){ // --- has photos
                         let $photos = $('<div class="photos"></div>');
 
@@ -61,11 +63,11 @@ jQuery(document).ready(function($) {
 
                         $cart.append($photos);
                     } // --- end has photos
-
+*/
                     $availableCarts.append($cart);
                 }); // -- end each item
 
-                $('.golf-carts-page').append($availableCarts);
+                $('.available-carts').append($availableCarts);
 
                 const $info = $(
                     '<div class="info"><h3>Available Carts</h3><p>All carts are freshly serviced and ready to hit the course! Looking for a recreational ride? We can outfit any of these carts with flip-back seats, lights, lift-kits and more!</p></div>'
