@@ -72,23 +72,25 @@ jQuery(document).ready(function($) {
                 );
 
                 $availableCarts.prepend($info);
-                fancyboxInit();
             // -- has items
             } else {
-                cycleImage();
-                setInterval(function(){
-                    cycleImage()
-                }, 3500);
-            
+                initEmpty();            
             }
 
         })
         .catch((error) => {
             console.log('error occured');
             console.log(error);
+            initEmpty();
         })
 
 
+    function initEmpty() {
+        cycleImage();
+        setInterval(function(){
+            cycleImage()
+        }, 3500);        
+    }
 
 
     function cycleImage() {
