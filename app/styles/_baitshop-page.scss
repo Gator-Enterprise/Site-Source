@@ -1,0 +1,63 @@
+.baitshop-page {
+    .page-title {
+        @include text-shadow;
+        margin-top: $block-spacing*1.5;
+        //margin-bottom: $block-spacing;
+        width: 100%;
+        font-size: 3rem;
+        text-align: center;
+        color: $purple;
+
+    }
+    .beer\&bait {
+        p {
+            font-size: 1.25rem;
+            margin-bottom: .5rem;
+            text-align: center;
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div {
+            display: flex;
+            flex-wrap: nowrap;
+            img {
+                flex: 1;
+                width: 50%;
+                box-sizing: border-box;
+                border: 1rem solid white;
+                padding: 0.75rem;
+                background: black;
+            }
+            @media screen and (max-width: 800px) {
+                flex-wrap: wrap;
+                img {width: 100%;}
+            }            
+        }
+    }
+    .info {
+        @extend .dark;
+        @extend %page-info;
+        padding: $block-spacing;
+        background-color: black;
+        h3 {color: $purple;}
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+// .engines-unavailable,
+// .engines-coming-soon {
+//     @extend %no-items-available-section;
+// }
+
+// .available-engines {
+//     @extend %available-items-photos;
+//     .engine {
+//         @extend %available-item-styles
+
+//     }
+// }
+
