@@ -1,6 +1,6 @@
 ## Gator Enterprise site-specfic info
 
-correctly builds using `node v6.11.4`  
+correctly builds using `node v7.2.0`  
 `yarn run gulp` - builds for prod  
 `yarn run gulp serve` - builds, serves on `http://localhost:4000/`, & watches for changes (`serve:dist` same as `serve` but as prod)  
 
