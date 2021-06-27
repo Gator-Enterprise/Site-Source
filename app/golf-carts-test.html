@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gator Enterprise | Golf Carts</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/touch/favicon-152.png">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2c2c2c">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles/gator.css">
+
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
+    <script src="scripts/golf-cart-page.js"></script>
+</head>
+<body class="golf-carts-page">
+    <header>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/marine">Marine</a></li>
+                <li class="menu-item active"><a href="/golf-carts">Golf Carts</a></li>
+                <li class="menu-item"><a href="/bait&beer">Bait & Beer</a></li>
+                <li class="menu-item"><a href="/contact">Contact Us</a></li>
+            </ul>
+            <div class="mobile-nav">
+                <a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a>
+                <button id="menu-toggle" class="menu-toggle" type="button">
+                    <span class="toggle-box"> <span class="toggle-inner"></span></span>
+                </button>
+                <div class="mobile-menu-items">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/marine">Marine</a></li>
+                        <li class="active"><a href="/golf-carts">Golf Carts</a></li>
+                        <li><a href="/bait&beer">Bait & Beer</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="shadow"></div>
+
+    <section>
+
+        <h1 class="page-title">Golf Cart Service & Sales </h1>
+
+        <div class="service">
+            <p>
+                Need to get your old cart back up to speed? <br>
+                Bring it on in. Our services includes:
+            </p>
+            <ul>
+                <li>Change Oil & Filter</li>
+                <li>Replace Air Filter</li>
+                <li>Replace Spark-plugs</li>
+                <li>Inspect Drive & Generator Belts</li>
+                <li>Drive Clutch</li>
+                <li>Throttle Linkage</li>
+                <li>Grease Wheel Bearings</li>
+                <li>Differential Oil</li>
+                <li>Correct Tire Pressure</li>
+                <li>Check Brakes Work Properly</li>
+                <li>Test Battery & Terminal Connector</li>
+            </ul>
+        </div>
+
+        <div>
+        <p>
+            We also do custom add-on's like:</p>
+            <ul>
+                <li><a href="#enclosures">Enclosures</a></li>
+                <li>Flip Seats</li>
+                <li>Headlights/Taillights</li>
+                <li>Rearview Mirrors</li>
+                <li>Custom Wheels</li>
+                <li>Lift Kits</li>
+                <li>Windshields</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="golf-carts-page available-carts"></section>
+
+    <section class="no-carts golf-carts-photos">
+        <div>
+            <img src="/images/carts/golf-cart_crop.jpg" class="active" />
+            <img src="images/carts/cubs_crop.jpg" class="next" />
+            <img src="images/carts/doggo_crop.jpg" />
+        </div>
+        <div class="dark">
+            <h3>New & Used Golf Carts for Sale</h3>
+            <p>
+                Stop in to see our selection of new and used golf carts, <br/>
+                check out our <a href="https://www.facebook.com/GatorEnterprise/" target="_blank">Facebook page</a>, <br/>
+                or <a href="/contact">get in touch</a> to find out more.
+            </p>
+        </div>
+
+    </section>
+    <section class="doorworks" id="enclosures">
+        <div class="intro">
+            <div class="doorworks-logo"><img src="images/carts/DoorWorks Authorized Dealer.png" alt="DoorWorks Authorized Dealer" /></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/etTchlOcQ-I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="get-in-touch">
+            <p> We are a Authorized Dealer for DoorWorks® Golf Cart Enclosures. Below you will find examples of the various styles & colors of enclosures that are available.</p>
+            <p>Due to the enclosures being specfic to the make & model of cart, pricing varies based on the cart being enclosed, material/color, & style. Please contact us for me information. </p>
+        </div>
+        <div class="versions">
+            <div class="hinged">
+                <p class="title">Hinged Door Enclosure</p>
+                <div class="carousel">
+                    <input type="radio" id="hinged-carousel-1" name="hinged-carousel[]" checked>
+                    <input type="radio" id="hinged-carousel-2" name="hinged-carousel[]">
+                    <input type="radio" id="hinged-carousel-3" name="hinged-carousel[]">
+                    <input type="radio" id="hinged-carousel-4" name="hinged-carousel[]">
+                    <ul class="carousel__items">
+                        <li class="carousel__item"><img src="images/carts/hinged/Support Hinged.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/hinged/Support Hinged 1.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/hinged/Support Hinged 2.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/hinged/Support Hinged 3.png" alt=""></li>
+                    </ul>
+                 <div class="carousel__prev">
+                    <label for="hinged-carousel-1"></label>
+                    <label for="hinged-carousel-2"></label>
+                    <label for="hinged-carousel-3"></label>
+                    <label for="hinged-carousel-4"></label>
+                 </div>
+                 <div class="carousel__next">
+                   <label for="hinged-carousel-1"></label>
+                   <label for="hinged-carousel-2"></label>
+                   <label for="hinged-carousel-3"></label>
+                   <label for="hinged-carousel-4"></label>
+                 </div>
+                 <div class="carousel__nav">
+                   <label for="hinged-carousel-1"></label>
+                   <label for="hinged-carousel-2"></label>
+                   <label for="hinged-carousel-3"></label>
+                   <label for="hinged-carousel-4"></label>
+                 </div>
+               </div>
+            </div>
+            <div class="track">
+                <p class="title">Track Style Enclosure</p>
+                <div class="carousel">
+                    <input type="radio" id="track-carousel-1" name="track-carousel[]" checked>
+                    <input type="radio" id="track-carousel-2" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-3" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-4" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-5" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-6" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-7" name="track-carousel[]">
+                    <input type="radio" id="track-carousel-8" name="track-carousel[]">
+                    <ul class="carousel__items">
+                        <li class="carousel__item"><img src="images/carts/track/track1.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track2.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track3.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track4.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track5.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track6.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track7.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/track/track8.png" alt=""></li>
+                    </ul>
+                 <div class="carousel__prev">
+                    <label for="track-carousel-1"></label>
+                    <label for="track-carousel-2"></label>
+                    <label for="track-carousel-3"></label>
+                    <label for="track-carousel-4"></label>
+                    <label for="track-carousel-5"></label>
+                    <label for="track-carousel-6"></label>
+                    <label for="track-carousel-7"></label>
+                    <label for="track-carousel-8"></label>                
+                 </div>
+                 <div class="carousel__next">
+                    <label for="track-carousel-1"></label>
+                    <label for="track-carousel-2"></label>
+                    <label for="track-carousel-3"></label>
+                    <label for="track-carousel-4"></label>
+                    <label for="track-carousel-5"></label>
+                    <label for="track-carousel-6"></label>
+                    <label for="track-carousel-7"></label>
+                    <label for="track-carousel-8"></label>                 
+                 </div>
+                 <div class="carousel__nav">
+                    <label for="track-carousel-1"></label>
+                    <label for="track-carousel-2"></label>
+                    <label for="track-carousel-3"></label>
+                    <label for="track-carousel-4"></label>
+                    <label for="track-carousel-5"></label>
+                    <label for="track-carousel-6"></label>
+                    <label for="track-carousel-7"></label>
+                    <label for="track-carousel-8"></label>                   
+                 </div>
+               </div>
+            </div>
+            <div class="threeside">
+                <p class="title">3-Sided "Over the Top" Covers </p>
+                <div class="carousel">
+                    <input type="radio" id="threeside-carousel-1" name="threeside-carousel[]" checked>
+                    <input type="radio" id="threeside-carousel-2" name="threeside-carousel[]">
+                    <input type="radio" id="threeside-carousel-3" name="threeside-carousel[]">
+                    <input type="radio" id="threeside-carousel-4" name="threeside-carousel[]">
+                    <input type="radio" id="threeside-carousel-5" name="threeside-carousel[]">
+                    <input type="radio" id="threeside-carousel-6" name="threeside-carousel[]">
+                    <ul class="carousel__items">
+                        <li class="carousel__item"><img src="images/carts/3side/3side1.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/3side/3side2.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/3side/3side3.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/3side/3side4.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/3side/3side5.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/3side/3side6.png" alt=""></li>
+                    </ul>
+                 <div class="carousel__prev">
+                    <label for="threeside-carousel-1"></label>
+                    <label for="threeside-carousel-2"></label>
+                    <label for="threeside-carousel-3"></label>
+                    <label for="threeside-carousel-4"></label>
+                    <label for="threeside-carousel-5"></label>
+                    <label for="threeside-carousel-6"></label>             
+                 </div>
+                 <div class="carousel__next">
+                    <label for="threeside-carousel-1"></label>
+                    <label for="threeside-carousel-2"></label>
+                    <label for="threeside-carousel-3"></label>
+                    <label for="threeside-carousel-4"></label>
+                    <label for="threeside-carousel-5"></label>
+                    <label for="threeside-carousel-6"></label>               
+                 </div>
+                 <div class="carousel__nav">
+                    <label for="threeside-carousel-1"></label>
+                    <label for="threeside-carousel-2"></label>
+                    <label for="threeside-carousel-3"></label>
+                    <label for="threeside-carousel-4"></label>
+                    <label for="threeside-carousel-5"></label>
+                    <label for="threeside-carousel-6"></label>
+                 </div>
+               </div>
+            </div>
+            <div class="fourside">
+                <p class="title">4-Sided "Over the Top" Covers </p>
+                <div class="carousel">
+                    <input type="radio" id="fourside-carousel-1" name="fourside-carousel[]" checked>
+                    <input type="radio" id="fourside-carousel-2" name="fourside-carousel[]">
+                    <input type="radio" id="fourside-carousel-3" name="fourside-carousel[]">
+                    <input type="radio" id="fourside-carousel-4" name="fourside-carousel[]">
+                    <input type="radio" id="fourside-carousel-5" name="fourside-carousel[]">
+                    <input type="radio" id="fourside-carousel-6" name="fourside-carousel[]">
+                    <ul class="carousel__items">
+                        <li class="carousel__item"><img src="images/carts/4side/4side1.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/4side/4side2.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/4side/4side3.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/4side/4side4.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/4side/4side5.png" alt=""></li>
+                        <li class="carousel__item"><img src="images/carts/4side/4side6.png" alt=""></li>
+                    </ul>
+                 <div class="carousel__prev">
+                    <label for="fourside-carousel-1"></label>
+                    <label for="fourside-carousel-2"></label>
+                    <label for="fourside-carousel-3"></label>
+                    <label for="fourside-carousel-4"></label>
+                    <label for="fourside-carousel-5"></label>
+                    <label for="fourside-carousel-6"></label>             
+                 </div>
+                 <div class="carousel__next">
+                    <label for="fourside-carousel-1"></label>
+                    <label for="fourside-carousel-2"></label>
+                    <label for="fourside-carousel-3"></label>
+                    <label for="fourside-carousel-4"></label>
+                    <label for="fourside-carousel-5"></label>
+                    <label for="fourside-carousel-6"></label>               
+                 </div>
+                 <div class="carousel__nav">
+                    <label for="fourside-carousel-1"></label>
+                    <label for="fourside-carousel-2"></label>
+                    <label for="fourside-carousel-3"></label>
+                    <label for="fourside-carousel-4"></label>
+                    <label for="fourside-carousel-5"></label>
+                    <label for="fourside-carousel-6"></label>
+                 </div>
+               </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+

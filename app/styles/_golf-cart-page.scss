@@ -143,3 +143,295 @@
     }
 
 }
+
+
+.doorworks {
+    background-color: #fff;
+    max-width: calc(1280px - 4rem);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .intro {
+        margin: 0;
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+        .doorworks-logo {
+            display:flex;
+            flex-grow:2; 
+            justify-content: center;
+            order: 2;
+        }
+    }
+
+    .get-in-touch {
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        p {
+            max-width: 800px;
+            margin-bottom: .5rem;
+        }
+    }
+    .versions {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0;
+        // justify-content: center;
+        // align-items: center;
+        justify-content: space-around;
+        align-content: space-around;        
+//        // justify-content: space-between;
+  //      // align-content: space-between;
+        &> div {
+            padding-top: 2rem;
+        }
+    }
+
+    @media screen and (max-width: 860px){
+        max-width: 100vw;
+        box-sizing:border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        .intro {flex-direction:column;}
+        .intro .doorworks-logo {
+            max-width: 100%;            
+            order: 0;
+            img {width: 100%;}
+        }
+        .intro iframe{
+            max-width: 100%;
+        }
+    }    
+}
+
+
+/**
+ * Carousel.sass
+ * @author: Dang Van Thanh
+ * @github: https://github.com/dangvanthanh/carousel.sass
+ * @description: A Simple Carousel Pure CSS Using Sass
+ * @version: 1.0.0
+ */
+%animation-default {
+  opacity: 1 !important;
+  z-index: 3;
+}
+
+//
+@mixin carousel($items, $class, $animation: 'default') {
+.#{$class} { 
+    width: 500px; 
+
+    .title {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+  .carousel {
+    border: 1px solid $purple;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    > input[type="radio"] {
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      top: 0;
+
+      &:checked {
+        ~ .carousel__items .carousel__item,
+        ~ .carousel__prev > label,
+        ~ .carousel__next > label {
+          opacity: 0;
+        }
+      }
+
+      @for $i from 1 through $items {
+        &:nth-child(#{$i}) {
+          &:checked {
+            ~ .carousel__items .carousel__item {
+              @if $animation == 'default' {
+                &:nth-child(#{$i}) {
+                  opacity: 1;
+                }
+              }
+            }
+
+            ~ .carousel__prev {
+              > label {
+                @if $i == 1 {
+                  &:nth-child(#{$items}) {
+                    @extend %animation-default;
+                  }
+                } @else if $i == $items {
+                  &:nth-child(#{$items - 1}) {
+                    @extend %animation-default;
+                  }
+                } @else {
+                  &:nth-child(#{$i - 1}) {
+                    @extend %animation-default;
+                  }
+                }
+              }
+            }
+
+            ~ .carousel__next {
+              > label {
+                @if $i == $items {
+                  &:nth-child(1) {
+                    @extend %animation-default;
+                  }
+                } @else {
+                  &:nth-child(#{$i + 1}) {
+                    @extend %animation-default;
+                  }
+                }
+              }
+            }
+
+            ~ .carousel__nav {
+              > label {
+                &:nth-child(#{$i}) {
+                  background: #ccc;
+                  cursor: default;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__items {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      width: 100%;
+      height: 500px;
+      //height 100%; 
+      position: relative;
+    }
+
+    &__item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: opacity .5s;
+      -webkit-transition: opacity .5s;
+
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+
+    &__prev,
+    &__next {
+      > label {
+        background-color: $purple;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: block;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        opacity: 0;
+        z-index: 2;
+
+        &:hover,
+        &:focus {
+          opacity: .5 !important;
+        }
+
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: inherit;
+          height: inherit;
+        }
+
+        &:before {
+          background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
+                      linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+          width: 60%;
+          height: 60%;
+          top: 20%;
+        }
+      }
+    }
+
+    &__prev {
+      > label {
+        left: 2%;
+
+        &:before {
+          left: 35%;
+          top: 20%;
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+        }
+      }
+    }
+
+    &__next {
+      > label {
+        right: 2%;
+
+        &:before {
+          left: 10%;
+          transform: rotate(315deg);
+          -webkit-transform: rotate(315deg);
+        }
+      }
+    }
+
+    &__nav {
+      position: absolute;
+      bottom: 3%;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      z-index: 3;
+
+      > label {
+        border: 1px solid $purple;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 .125%;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    @media screen and (max-width: 560px){
+        height: 100vw;
+
+    }
+  }
+}
+}
+
+
+@include carousel(4,'hinged');
+@include carousel(8,'track');
+@include carousel(6,'threeside');
+@include carousel(6,'fourside');
+
+//@include carousel(8);
+
