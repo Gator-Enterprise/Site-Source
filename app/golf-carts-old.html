@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gator Enterprise | Golf Carts</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="images/touch/favicon-152.png">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2c2c2c">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles/gator.css">
+
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
+    <script src="scripts/golf-cart-page.js"></script>
+</head>
+<body class="golf-carts-page">
+    <header>
+        <nav role="navigation">
+            <ul>
+                <li><a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a></li>
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/marine">Marine</a></li>
+                <li class="menu-item active"><a href="/golf-carts">Golf Carts</a></li>
+                <li class="menu-item"><a href="/bait&beer">Bait & Beer</a></li>
+                <li class="menu-item"><a href="/contact">Contact Us</a></li>
+            </ul>
+            <div class="mobile-nav">
+                <a href="/"><img class="logo" src="/images/logo-full.png" alt="Gator Enterprise"></a>
+                <button id="menu-toggle" class="menu-toggle" type="button">
+                    <span class="toggle-box"> <span class="toggle-inner"></span></span>
+                </button>
+                <div class="mobile-menu-items">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/marine">Marine</a></li>
+                        <li class="active"><a href="/golf-carts">Golf Carts</a></li>
+                        <li><a href="/bait&beer">Bait & Beer</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="shadow"></div>
+
+    <section>
+
+        <h1 class="page-title">Golf Cart Service & Sales </h1>
+
+        <div class="service">
+            <p>
+                Need to get your old cart back up to speed? <br>
+                Bring it on in. Our services includes:
+            </p>
+            <ul>
+                <li>Change Oil & Filter</li>
+                <li>Replace Air Filter</li>
+                <li>Replace Spark-plugs</li>
+                <li>Inspect Drive & Generator Belts</li>
+                <li>Drive Clutch</li>
+                <li>Throttle Linkage</li>
+                <li>Grease Wheel Bearings</li>
+                <li>Differential Oil</li>
+                <li>Correct Tire Pressure</li>
+                <li>Check Brakes Work Properly</li>
+                <li>Test Battery & Terminal Connector</li>
+            </ul>
+        </div>
+
+        <div>
+        <p>
+            We also do custom add-on's like:</p>
+            <ul>
+                <li>Flip Seats</li>
+                <li>Headlights/Taillights</li>
+                <li>Rearview Mirrors</li>
+                <li>Custom Wheels</li>
+                <li>Lift Kits</li>
+                <li>Windshields</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="golf-carts-page available-carts"></section>
+
+    <section class="no-carts golf-carts-photos">
+        <div>
+            <img src="/images/carts/golf-cart_crop.jpg" class="active" />
+            <img src="images/carts/cubs_crop.jpg" class="next" />
+            <img src="images/carts/doggo_crop.jpg" />
+        </div>
+        <div class="dark">
+            <h3>New & Used Golf Carts for Sale</h3>
+            <p>
+                Stop in to see our selection of new and used golf carts, <br/>
+                check out our <a href="https://www.facebook.com/GatorEnterprise/" target="_blank">Facebook page</a>, <br/>
+                or <a href="/contact">get in touch</a> to find out more.
+            </p>
+        </div>
+
+    </section>
+</body>
+</html>
+
+
+
