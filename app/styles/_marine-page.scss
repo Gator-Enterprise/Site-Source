@@ -84,7 +84,7 @@
             &+.boat-type+.boat-type { // ಠ_ಠ
                 //margin-bottom: 0;
             }
-            .spark{
+            .note{
                 font-style: italic;
                 font-size: 0.8rem;
             }
@@ -126,8 +126,12 @@
                 font-size: 0.9rem;
             }
         }
-        @media screen and (min-width: 641px) {
+        @media screen and (min-width: 721px) {
             .notes { max-width: 65%; }
+        }
+
+        @media screen and (max-width: 960px)  {
+            div { flex-basis: 40%; }
         }
 
         @media screen and (max-width: 640px)  {
