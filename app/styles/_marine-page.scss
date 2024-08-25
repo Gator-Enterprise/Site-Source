@@ -11,6 +11,7 @@
 
 
     .winterize {
+        max-width: 100%;
         background-color: black;
         margin-top: $block-spacing*1.5;
         line-height: 1.25;
@@ -23,7 +24,7 @@
         & > h2 {color: white;}
 
 
-        div {            
+        &>div {            
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -92,11 +93,19 @@
         }
 
         .notes {
+            display: flex;
+            flex-basis: unset;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: space-between;
+            justify-content: space-between;
             color: white;
             margin-left: $block-spacing/2;
             margin-right: $block-spacing/2;
             padding:0;
             text-align: left;
+            
+
             a {
                 color: white;
                 text-decoration: none;
@@ -106,8 +115,8 @@
             h4 {                
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: 700;
-                text-decoration: underline;
                 text-align: center;
+                a {text-decoration: underline;}
             }
             li {
                 position: relative;
@@ -119,24 +128,64 @@
                     line-height: 1;
                     left:0;
                 }
+                &:last-of-type::before{content:''}
             }
-            small {
-                text-align: right;
+            small,
+            .small {
+                text-align: center;
                 font-style: italic;
                 font-size: 0.9rem;
             }
+            &>div:first-of-type {
+                flex: 3;
+                padding-right:  $block-spacing *2
+            }
+            .qr-code {
+                //display: inline;
+                max-width: 240px;
+                flex: 1;
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                img {max-width: 240px;}                
+
+                
+                //img {display: block}
+                
+            }
         }
-        @media screen and (min-width: 721px) {
-            .notes { max-width: 65%; }
-        }
+        
+        /*
+        
+            
+        }*/
 
         @media screen and (max-width: 960px)  {
             div { flex-basis: 40%; }
+        }
+        @media screen and (max-width:760px) {
+            .notes {
+                flex-wrap: wrap;
+                &>div:first-of-type{
+                    flex:1;
+                    flex-basis: 100%;
+                    padding: unset;
+                }
+                .qr-code {
+                    padding-top: $block-spacing;
+                    max-width: unset;
+                    text-align: center;
+                }
+            }
         }
 
         @media screen and (max-width: 640px)  {
             div { flex-basis: 75%; }
         }
+        
     }
     .info {
         @extend .dark;
