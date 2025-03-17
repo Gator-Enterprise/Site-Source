@@ -140,8 +140,10 @@
     margin-bottom: 0;
     padding: 0;
     max-width: 500px;
-    height: 840px;
-    & + .location-info {height: 840px;}
+    // height: 840px;
+    & + .location-info {
+      // height: 840px;
+    }
 
     #timeline {
         background-image: url(/images/loading.svg);
@@ -157,6 +159,8 @@
 .location-info {
     flex: 1;
     padding: 0;
+    min-height: fit-content;
+
     .map {
         height: 50%;
         iframe {min-height: 250px;}
@@ -164,7 +168,7 @@
     .general-info {
         @extend %info-block;
         padding: 1rem;
-        height: 50%;
+        // height: 50%;
 
 
         @media screen and (min-width:1100px) {
