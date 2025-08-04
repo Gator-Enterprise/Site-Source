@@ -24,7 +24,7 @@
         & > h2 {color: white;}
 
 
-        &>div {            
+        &>div {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -45,7 +45,7 @@
 //            text-align: center;
         }
         em {
-            font-style: italic;            
+            font-style: italic;
         }
         /*
         //h4,li {
@@ -91,20 +91,23 @@
             }
 
         }
+        .tax {
+          justify-self: flex-end;
+          color: white;
+        }
 
         .notes {
             display: flex;
             flex-basis: unset;
             flex-wrap: nowrap;
-            flex-direction: row;
-            align-content: space-between;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
             color: white;
             margin-left: $block-spacing/2;
             margin-right: $block-spacing/2;
             padding:0;
-            text-align: left;
-            
+            text-align: center;
+
 
             a {
                 color: white;
@@ -112,7 +115,8 @@
                 cursor: pointer;
             }
             h4, li {padding-bottom: 0.75rem;}
-            h4 {                
+            h4 {
+                max-width: 75%;
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: 700;
                 text-align: center;
@@ -149,22 +153,23 @@
                     flex-direction: column;
                     align-items: center;
                 }
-                
-                img {max-width: 240px;}                
 
-                
+                img {max-width: 240px;}
+
+
                 //img {display: block}
-                
+
             }
         }
-        
+
         /*
-        
-            
+
+
         }*/
 
         @media screen and (max-width: 960px)  {
             div { flex-basis: 40%; }
+            .notes h4{ max-width: unset;}
         }
         @media screen and (max-width:760px) {
             .notes {
@@ -185,7 +190,7 @@
         @media screen and (max-width: 640px)  {
             div { flex-basis: 75%; }
         }
-        
+
     }
     .info {
         @extend .dark;
