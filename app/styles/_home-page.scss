@@ -195,6 +195,20 @@
 .hours-label {
     text-decoration: underline;
 }
+.hours-list li {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .day {
+        font-weight: 700;
+        min-width: 100px;
+    }
+
+    .time {
+        font-size: 0.9em;
+    }
+}
 @media screen and (max-width:720px) {
     #stay-in-touch {
         margin-left:auto;
